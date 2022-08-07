@@ -22,7 +22,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 # add mosdns
 git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/geodata
+# git clone https://github.com/sbwml/v2ray-geodata package/geodata
 
 
 # themes添加（svn co 命令意思：指定版本如https://github）
