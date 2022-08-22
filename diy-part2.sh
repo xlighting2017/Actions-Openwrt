@@ -21,7 +21,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # git clone https://github.com/kiddin9/openwrt-packages.git package/openwrt-packages
 
 # add mosdns
-git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
+# git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
 # git clone https://github.com/sbwml/v2ray-geodata package/geodata
 
 
