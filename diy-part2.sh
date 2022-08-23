@@ -13,12 +13,9 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.199.1/g' package/base-files/files/bin/config_generate
 
-# 修改连接数数
-# sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
-# 修正连接数（by ベ七秒鱼ベ）
+# 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
-# git clone https://github.com/kiddin9/openwrt-packages.git package/openwrt-packages
 
 # add mosdns
 # git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
@@ -37,10 +34,10 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # Modify hostname
 # sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 
-# Modify the version number
-#sed -i "s/OpenWrt /MuaChow build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 #使用原始最新版本，而不是上游package里面的版本
+git clone https://github.com/vernesong/OpenClash/luci-app-openclash.git package/luci-app-openclash
+
 # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 # git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
 # git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
