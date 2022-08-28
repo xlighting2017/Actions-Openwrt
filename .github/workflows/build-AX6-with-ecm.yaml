@@ -5,7 +5,7 @@
 #   IPQ807x patchs from Robimarko & Ansuels
 #   ECM patches from Bitthief
 
-name: Build OpenWrt with ECM
+name: Build AX6 with ECM
 
 on:
   repository_dispatch:
