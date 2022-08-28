@@ -153,16 +153,14 @@ jobs:
 
     - name: Upload OpenWrt Firmware to Release
       id: release
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@main
       if: env.PACKAGED_STATUS == 'success' && !cancelled()
       with:
-        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
-        allowUpdates: true
-        removeArtifacts: true
-        tag: ${{ env.FILE_NAME }}
-        commit: main
-        token: ${{ secrets.GH_TOKEN }}
+        tag: OpenWrt_${{ github.event.inputs.openwrt_soc }}_${{ env.PACKAGED_OUTPUTDATE }}
+        removeArtifacts: false
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        allowUpdates: true
+        token: ${{ secrets.GH_TOKEN }}
         body: |
             斐讯N1固件精简版
             ## Openwrt🚀
