@@ -1,27 +1,55 @@
-#
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# Description: Build OpenWrt using GitHub Actions
-#
-
 name: Build OpenWRT for N1
 
 on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
-      ssh:
-        description: 'SSH connection to Actions'
+      openwrt_soc:
+        description: "Select Amlogic SoC"
         required: false
-        default: 'false'
-#   schedule:
-#    - cron: 10 */12 * * *
-#   watch:
-#     types: started
+        default: "s905d"
+        type: choice
+        options:
+          - all
+          - s905x3_s905d_s912
+          - a311d
+          - s922x
+          - s922x-n2
+          - s922x-reva
+          - s905x3
+          - s905x2
+          - s905x2-km3
+          - s912
+          - s912-m8s
+          - s905d
+          - s905d-ki
+          - s905x
+          - s905w
+          - s905
+          - s905l3a
+      openwrt_kernel:
+        description: "Select kernel version"
+        required: false
+        default: "5.19.1"
+        type: choice
+        options:
+          - 5.4.210_5.10.135_5.15.50
+          - 5.4.210_5.10.135
+          - 5.10.135_5.15.50
+          - 5.15.50_5.19.1
+          - 5.4.210
+          - 5.10.135
+          - 5.15.50
+          - 5.19.1
+      auto_kernel:
+        description: "Auto use the latest kernel"
+        required: false
+        default: true
+        type: boolean
+      openwrt_size:
+        description: "Set the rootfs size(Unit: MiB)."
+        required: false
+        default: "960"
     
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -30,11 +58,6 @@ env:
   CONFIG_FILE: N1.config
   DIY_P1_SH: N1.diy-part1.sh
   DIY_P2_SH: N1.diy-part2.sh
-  UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: false
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: false
-  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
 jobs:
@@ -45,7 +68,7 @@ jobs:
     
     steps:
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
     - name: Initialization environment
       env:
@@ -69,11 +92,11 @@ jobs:
 
     - name: Load custom feeds
       run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
+        [[ -e "${FEEDS_CONF}" ]] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
+        chmod +x ${DIY_P1_SH}
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
-
+        ${GITHUB_WORKSPACE}/${DIY_P1_SH}
+    
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -82,19 +105,12 @@ jobs:
 
     - name: Load custom configuration
       run: |
-        [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P2_SH
+        [[ -d "files" ]] && mv -f files openwrt/files
+        [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
+        chmod +x ${DIY_P2_SH}
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
-
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-
+        ${GITHUB_WORKSPACE}/${DIY_P2_SH}
+    
     - name: Download package
       id: package
       run: |
@@ -103,13 +119,13 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-
+    
     - name: Compile the firmware
       id: compile
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 || make -j1 V=s
+        make -j$(($(nproc) + 1)) V=s || make -j1 || make -j1 V=s
         echo "::set-output name=status::success"
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
@@ -118,36 +134,16 @@ jobs:
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
-
-    - name: Upload bin directory
-      uses: actions/upload-artifact@main
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-      with:
-        name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: openwrt/bin
-
-    - name: Organize files
-      id: organize
-      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      run: |
-        cd openwrt/bin/targets/*/*
-        rm -rf packages
-        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "::set-output name=status::success"
     
     - name: Package Armvirt as OpenWrt
-      if: (!cancelled())
-      uses: ophub/flippy-openwrt-actions@main
-      env:
-        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
-        PACKAGE_SOC: s905d
-        #WHOAMI: breakings
-        KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt/kernel
-        KERNEL_VERSION_NAME: 5.19.1
-        #ENABLE_WIFI_K510: 1
-        #OPENWRT_VER: R21.12.1
-        KERNEL_AUTO_LATEST: true
-        GZIP_IMGS: .gz
+      if: steps.compile.outputs.status == 'success' && !cancelled()
+      uses: ophub/amlogic-s9xxx-openwrt@main
+      with:
+        openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
+        openwrt_soc: ${{ github.event.inputs.openwrt_soc }}
+        openwrt_kernel: ${{ github.event.inputs.openwrt_kernel }}
+        auto_kernel: ${{ github.event.inputs.auto_kernel }}
+        openwrt_size: ${{ github.event.inputs.openwrt_size }}
 
     - name: Upload artifact to Actions
       uses: kittaakos/upload-artifact-as-is@master
@@ -184,21 +180,21 @@ jobs:
              5. chmod +x update-amlogic-openwrt.sh
              6. ./update-amlogic-openwrt.sh 固件名(例：`./update-amlogic-openwrt.sh openwrt_s905d_n1_R21.8.6_k5.14.2-flippy-64+.img`)
              
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        repository: ${{ github.repository }}
-        retain_days: 60
-        keep_minimum_runs: 60
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        repo:
-        keep_latest: 30
-        delete_tag_pattern:
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - name: Delete workflow runs
+#      uses: GitRML/delete-workflow-runs@main
+#      with:
+#        token: ${{ secrets.GITHUB_TOKEN }}
+#        repository: ${{ github.repository }}
+#        retain_days: 60
+#        keep_minimum_runs: 60
+#
+#    - name: Remove old Releases
+#      uses: dev-drprasad/delete-older-releases@v0.2.0
+#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+#      with:
+#        repo:
+#        keep_latest: 30
+#        delete_tag_pattern:
+#        delete_tags: true
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
