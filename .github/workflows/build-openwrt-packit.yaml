@@ -147,14 +147,14 @@ jobs:
 
     - name: Upload artifact to Actions
       uses: kittaakos/upload-artifact-as-is@master
-      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+      if: env.PACKAGED_STATUS == 'success' && !cancelled()
       with:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
 
     - name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@v1
-      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
+      if: env.PACKAGED_STATUS == 'success' && !cancelled()
       with:
         name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
         allowUpdates: true
