@@ -161,7 +161,7 @@ jobs:
         removeArtifacts: true
         tag: ${{ env.FILE_NAME }}
         commit: main
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.GH_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
             斐讯N1固件精简版
@@ -183,7 +183,7 @@ jobs:
 #    - name: Delete workflow runs
 #      uses: GitRML/delete-workflow-runs@main
 #      with:
-#        token: ${{ secrets.GITHUB_TOKEN }}
+#        token: ${{ secrets.GH_TOKEN }}
 #        repository: ${{ github.repository }}
 #        retain_days: 60
 #        keep_minimum_runs: 60
@@ -197,4 +197,4 @@ jobs:
 #        delete_tag_pattern:
 #        delete_tags: true
 #      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
