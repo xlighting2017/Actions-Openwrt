@@ -4,6 +4,7 @@
 #   imoutowrt/immortalwrt from CNSZTL
 #   IPQ807x patchs from Robimarko & Ansuels
 #   ECM patches from Bitthief
+################################################
 
 name: Build AX6 with ECM
 
@@ -25,7 +26,7 @@ env:
   DIY_P2_SH: AX6.with.ECM/diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_RELEASE: false
+  UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   
 jobs:
@@ -119,29 +120,37 @@ jobs:
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
-    - name: Upload firmware directory
+    - name: Upload firmware to action artifact
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware_with_ECM_${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
-    - name: Generate release tag
-      id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
-        echo "::set-output name=status::success"
-
-    - name: Upload firmware to release
-      uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name: Upload OpenWrt Firmware to Release
+      id: release
+      uses: ncipollo/release-action@main
+      if: env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*
+        tag: OpenWrt_Redmi_AX6_${{ env.PACKAGED_OUTPUTDATE }}
+        removeArtifacts: false
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        allowUpdates: true
+        token: ${{ secrets.GH_TOKEN }}
+        body: |
+            Redmi AX6 固件精简版, 带 ECM 加速
+            
+            Default IP: 192.168.199.1
+            Default username: root
+            Default password: password
+            
+            插件列表： 
+              ├ ddns
+              ├ filetransfer
+              ├ OpenClash
+              ├ SmartDNS
+              ├ ttyd
+              └ KMS
 
 #    - name: Delete workflow runs
 #      uses: GitRML/delete-workflow-runs@main
