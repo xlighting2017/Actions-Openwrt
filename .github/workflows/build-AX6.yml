@@ -113,7 +113,7 @@ jobs:
 
     - name: Organize files
       id: organize
-      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
@@ -130,7 +130,7 @@ jobs:
     - name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@main
-      if: env.UPLOAD_RELEASE == 'true' && (!cancelled())
+      if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
         tag: OpenWrt_Redmi_AX6_${{ env.FILE_DATE }}
         removeArtifacts: false
