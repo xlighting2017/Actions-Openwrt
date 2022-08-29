@@ -95,30 +95,32 @@ jobs:
       if: (!cancelled())
       run: df -hT
     
-    - name: Package Armvirt as OpenWrt
-      if: steps.compile.outputs.status == 'success' && !cancelled()
-      uses: ophub/amlogic-s9xxx-openwrt@main
-      with:
-        openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
-        openwrt_soc: ${{ github.event.inputs.openwrt_soc }}
-        openwrt_kernel: ${{ github.event.inputs.openwrt_kernel }}
-        auto_kernel: ${{ github.event.inputs.auto_kernel }}
-        openwrt_size: ${{ github.event.inputs.openwrt_size }}
 
-    - name: Upload artifact to Actions
-      uses: kittaakos/upload-artifact-as-is@master
-      if: steps.compile.outputs.status == 'success' && !cancelled()
+    - name: Organize files
+      id: organize
+      if: (!cancelled())
+      run: |
+        cd openwrt/bin/targets/*/*
+        rm -rf packages
+        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        echo "::set-output name=status::success"
+        
+    - name: Upload firmware to action artifact
+      uses: actions/upload-artifact@main
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        path: ${{ env.PACKAGED_OUTPUTPATH }}/
+        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        path: ${{ env.FIRMWARE }}
+        
 
     - name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@main
-      if: steps.compile.outputs.status == 'success' && !cancelled()
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         tag: OpenWrt_Armvirt
         removeArtifacts: false
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
