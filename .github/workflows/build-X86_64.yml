@@ -132,7 +132,7 @@ jobs:
       with:
         tag: OpenWrt_Redmi_AX6_${{ env.PACKAGED_OUTPUTDATE }}
         removeArtifacts: false
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
