@@ -1,10 +1,10 @@
 ################################################
 # Description: Build OpenWrt for x86_64 using GitHub Actions
 # Uses:
-#   imoutowrt/immortalwrt from CNSZTL
+#   coolsnowwolf/lede from Lean
 ################################################
 
-name: Build x86_64
+name: Build Lean's x86_64
 
 on:
   repository_dispatch:
@@ -14,12 +14,11 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: X86_64/feeds.conf.default
-  CONFIG_FILE: X86_64/.config
+  FEEDS_CONF: X86_64/feeds.conf.lean
+  CONFIG_FILE: X86_64/.config.lean
   DIY_P1_SH: X86_64/diy-part1.sh
   DIY_P2_SH: X86_64/diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -153,13 +152,13 @@ jobs:
       uses: ncipollo/release-action@main
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: OpenWrt_x86_64_${{ env.FILE_DATE }}
+        tag: OpenWrt_x86_64_lean_${{ env.FILE_DATE }}
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-            X86_64 固件精简版
+            X86_64 固件精简版, lean's repo
             
             Default IP: 192.168.199.1
             Default username: root
