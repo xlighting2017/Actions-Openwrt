@@ -1,9 +1,4 @@
-# use local feeds.conf.default
-
-# immortalwrt's  default=5.10, testing = 5.15
-# src-git packages https://github.com/immortalwrt/packages.git
-# src-git luci https://github.com/immortalwrt/luci.git
-# src-git routing https://github.com/immortalwrt/routing.git
+# use local feeds.conf
 
 # Lean's  default=5.15, testing = 5.19
 src-git packages https://github.com/coolsnowwolf/packages.git
