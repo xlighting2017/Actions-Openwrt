@@ -1,9 +1,9 @@
 # use local feeds.conf
 
 # immortalwrt's  default=5.10, testing = 5.15
-# src-git packages https://github.com/immortalwrt/packages.git
-# src-git luci https://github.com/immortalwrt/luci.git
-# src-git routing https://github.com/immortalwrt/routing.git
+src-git packages https://github.com/immortalwrt/packages.git
+src-git luci https://github.com/immortalwrt/luci.git
+src-git routing https://github.com/immortalwrt/routing.git
 
 src-git telephony https://github.com/openwrt/telephony.git
 
