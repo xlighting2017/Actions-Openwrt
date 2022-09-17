@@ -18,6 +18,7 @@ Building OpenWrt with GitHub Actions
 - [OpenWrt](https://github.com/openwrt/openwrt)
 - [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 - [ImmmortalWrt](https://immortalwrt.org/)
+- [P3TERX](https://github.com/P3TERX/Actions-OpenWrt)
 - [Flippy](https://github.com/unifreq/openwrt_packit)
 - [amlogic-s9xxx-openwrt](https://github.com/ophub/amlogic-s9xxx-openwrt)
 - [Robimarko](https://github.com/robimarko/openwrt/tree/ipq807x-5.15-pr)
