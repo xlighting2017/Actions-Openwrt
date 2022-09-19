@@ -7,6 +7,8 @@ CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=y
 CONFIG_TARGET_DEVICE_PACKAGES_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=""
 CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s=y
 CONFIG_TARGET_DEVICE_PACKAGES_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s=""
+CONFIG_TARGET_ALL_PROFILES=y
+CONFIG_TARGET_PER_DEVICE_ROOTFS=y
 
 
 CONFIG_DEVEL=y
