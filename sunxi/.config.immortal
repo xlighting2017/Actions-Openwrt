@@ -32,7 +32,7 @@ CONFIG_AUTOREMOVE=y
 
 # Using testing/default Kernel
 # CONFIG_LINUX_5_10=y
-CONFIG_TESTING_KERNEL=y
+# CONFIG_TESTING_KERNEL=y
 
 # Build Options
 CONFIG_IB=n
