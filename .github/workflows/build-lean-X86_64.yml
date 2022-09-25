@@ -152,13 +152,13 @@ jobs:
       uses: ncipollo/release-action@main
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: OpenWrt_x86_64_lean_${{ env.FILE_DATE }}
+        tag: OpenWrt_x86_64_lean
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-            X86_64 固件精简版, lean's repo
+            X86_64 固件精简版, lean's repo, 编译时间: ${{ env.FILE_DATE }}
             
             Default IP: 192.168.199.1
             Default username: root
