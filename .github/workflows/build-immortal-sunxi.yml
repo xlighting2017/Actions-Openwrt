@@ -152,13 +152,14 @@ jobs:
       uses: ncipollo/release-action@main
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: OpenWrt_sunxi_Immortalwrt_${{ env.FILE_DATE }}
+        tag: OpenWrt_sunxi_Immortalwrt
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
             Immortalwrt's repo, sunxi 固件精简版, nanoPi Neo2, R1S H5, OrangePi Zero Plus
+            编译时间: ${{ env.FILE_DATE }}
             
             [TODO]Default IP: 192.168.199.1
             Default username: root
