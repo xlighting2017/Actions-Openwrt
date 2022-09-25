@@ -83,13 +83,13 @@ jobs:
       uses: ncipollo/release-action@main
       if: (!cancelled())
       with:
-        tag: OpenWrt_${{ github.event.inputs.openwrt_soc }}_${{ env.PACKAGED_OUTPUTDATE }}
+        tag: OpenWrt_${{ github.event.inputs.openwrt_soc }}
         removeArtifacts: false
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-            Amlogic/斐讯N1 固件精简版
+            Amlogic/斐讯N1 固件精简版, 打包时间: ${{ env.PACKAGED_OUTPUTDATE }}
             
             Default IP: 192.168.199.253
             Default username: root
@@ -106,15 +106,15 @@ jobs:
               ├ ttyd
               ├ KMS 
               └ Zerotier
-             
-#    - name: Delete workflow runs
-#      uses: GitRML/delete-workflow-runs@main
-#      with:
-#        token: ${{ secrets.GH_TOKEN }}
-#        repository: ${{ github.repository }}
-#        retain_days: 60
-#        keep_minimum_runs: 60
-#
+            
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        repository: ${{ github.repository }}
+        retain_days: 60
+        keep_minimum_runs: 3
+
 #    - name: Remove old Releases
 #      uses: dev-drprasad/delete-older-releases@v0.2.0
 #      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
