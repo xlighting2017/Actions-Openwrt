@@ -6,7 +6,7 @@ src-git luci https://github.com/immortalwrt/luci.git^1fb43804ea401e544a0ed61dd83
 src-git routing https://github.com/openwrt/routing.git
 src-git telephony https://github.com/openwrt/telephony.git
 
-# src-git nss_packages https://github.com/robimarko/nss-packages.git
+src-git nss_packages https://github.com/robimarko/nss-packages.git
 # src-git nss_packages https://github.com/bitthief/nss-packages.git
 #src-git-full video https://github.com/openwrt/video.git
 #src-git-full targets https://github.com/openwrt/targets.git
