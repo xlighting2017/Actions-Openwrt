@@ -147,7 +147,7 @@ jobs:
             Default username: root
             Default password: password
             
-            Kernel: 5.10.X
+            Kernel: 5.15.X
             
             插件列表： 
               ├ amlogic
