@@ -68,8 +68,8 @@ CONFIG_TARGET_IMAGES_GZIP=y
 
 
 # Packages Options
-CONFIG_ALL_KMODS=y
-CONFIG_ALL_NONSHARED=y
+# CONFIG_ALL_KMODS=y
+# CONFIG_ALL_NONSHARED=y
 
 ## Package.tweak
 CONFIG_PACKAGE_firewall4=n
@@ -89,9 +89,9 @@ CONFIG_PACKAGE_luci-lib-fs=y
 CONFIG_PACKAGE_luci-lib-ipkg=y
 
 ## kmods
-CONFIG_PACKAGE_kmod-cfg80211=y
-CONFIG_PACKAGE_kmod-lib80211=y
-CONFIG_PACKAGE_kmod-mac80211=y
+# CONFIG_PACKAGE_kmod-cfg80211=y
+# CONFIG_PACKAGE_kmod-lib80211=y
+# CONFIG_PACKAGE_kmod-mac80211=y
 
 ## Packages
 
@@ -131,14 +131,14 @@ CONFIG_PACKAGE_iptables-mod-tproxy=y
 CONFIG_PACKAGE_iputils-arping=y
 CONFIG_PACKAGE_irqbalance=y
 # CONFIG_PACKAGE_jq=y
-CONFIG_PACKAGE_lsblk=y
+# CONFIG_PACKAGE_lsblk=y
 CONFIG_PACKAGE_lscpu=y
 CONFIG_PACKAGE_openssl-util=y
 CONFIG_PACKAGE_proto-bonding=y
 CONFIG_PACKAGE_resize2fs=y
 CONFIG_PACKAGE_wget-ssl=y
 CONFIG_PACKAGE_whereis=y
-CONFIG_PACKAGE_wireless-regdb=y
+# CONFIG_PACKAGE_wireless-regdb=y
 CONFIG_PACKAGE_zlib=y
 
 # CONFIG_PACKAGE_lua-neturl=y
@@ -200,28 +200,28 @@ CONFIG_PACKAGE_dockerd=y
 CONFIG_PACKAGE_f2fs-tools=y
 CONFIG_PACKAGE_f2fsck=y
 
-CONFIG_PACKAGE_nfs-kernel-server=y
-CONFIG_PACKAGE_nfs-kernel-server-utils=y
-CONFIG_PACKAGE_nfs-utils=y
-CONFIG_PACKAGE_nfs-utils-libs=y
+# CONFIG_PACKAGE_nfs-kernel-server=y
+# CONFIG_PACKAGE_nfs-kernel-server-utils=y
+# CONFIG_PACKAGE_nfs-utils=y
+# CONFIG_PACKAGE_nfs-utils-libs=y
 
 ## Printer
 CONFIG_PACKAGE_p910nd=y
 
 ## Firmware
-CONFIG_PACKAGE_mt7601u-firmware=y
-CONFIG_PACKAGE_p54-usb-firmware=y
-CONFIG_PACKAGE_prism54-firmware=y
-CONFIG_PACKAGE_r8152-firmware=y
-CONFIG_PACKAGE_rs9113-firmware=y
-CONFIG_PACKAGE_rt2800-usb-firmware=y
-CONFIG_PACKAGE_rt73-usb-firmware=y
-CONFIG_PACKAGE_rtl8188eu-firmware=y
-CONFIG_PACKAGE_rtl8192cu-firmware=y
-CONFIG_PACKAGE_rtl8192eu-firmware=y
-CONFIG_PACKAGE_rtl8192su-firmware=y
-CONFIG_PACKAGE_rtl8723au-firmware=y
-CONFIG_PACKAGE_rtl8723bu-firmware=y
+# CONFIG_PACKAGE_mt7601u-firmware=y
+# CONFIG_PACKAGE_p54-usb-firmware=y
+# CONFIG_PACKAGE_prism54-firmware=y
+# CONFIG_PACKAGE_r8152-firmware=y
+# CONFIG_PACKAGE_rs9113-firmware=y
+# CONFIG_PACKAGE_rt2800-usb-firmware=y
+# CONFIG_PACKAGE_rt73-usb-firmware=y
+# CONFIG_PACKAGE_rtl8188eu-firmware=y
+# CONFIG_PACKAGE_rtl8192cu-firmware=y
+# CONFIG_PACKAGE_rtl8192eu-firmware=y
+# CONFIG_PACKAGE_rtl8192su-firmware=y
+# CONFIG_PACKAGE_rtl8723au-firmware=y
+# CONFIG_PACKAGE_rtl8723bu-firmware=y
 
 ## Language - Ruby
 CONFIG_PACKAGE_ruby=y
