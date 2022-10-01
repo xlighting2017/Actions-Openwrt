@@ -4,7 +4,7 @@
 # this action compile and upload to Release with fixed tag: OpenWrt_Armvirt
 #=====================================================================================
 
-name: Build OpenWRT for armvirt
+name: Build immortalwrt for armvirt
 
 on:
   repository_dispatch:
