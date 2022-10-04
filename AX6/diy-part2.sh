@@ -34,9 +34,10 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # Modify hostname
 # sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 
-
-#使用原始最新版本，而不是上游package里面的版本
+# 使用原始最新版本，而不是上游package里面的
+rm -rf ./feeds/luci/applications/luci-app-openclash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+
 
 # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 # git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
