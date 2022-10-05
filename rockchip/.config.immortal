@@ -87,11 +87,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 CONFIG_PACKAGE_luci-lib-ipkg=y
 
 ## kmods
-# CONFIG_PACKAGE_kmod-cfg80211=y
-# CONFIG_PACKAGE_kmod-lib80211=y
-# CONFIG_PACKAGE_kmod-mac80211=y
 CONFIG_PACKAGE_kmod-bonding=y
-CONFIG_PACKAGE_kmod-cfg80211=y
 CONFIG_PACKAGE_kmod-crypto-acompress=y
 CONFIG_PACKAGE_kmod-crypto-cbc=y
 CONFIG_PACKAGE_kmod-crypto-ccm=y
@@ -132,6 +128,9 @@ CONFIG_PACKAGE_kmod-gre=y
 
 CONFIG_PACKAGE_kmod-inet-diag=y
 
+CONFIG_PACKAGE_kmod-nf-conntrack-netlink=y
+CONFIG_PACKAGE_kmod-nf-ipt6=y
+CONFIG_PACKAGE_kmod-nf-reject6=y
 CONFIG_PACKAGE_kmod-ip6tables=y
 CONFIG_PACKAGE_kmod-ipt-conntrack-extra=y
 CONFIG_PACKAGE_kmod-ipt-extra=y
@@ -148,9 +147,12 @@ CONFIG_PACKAGE_kmod-lib-xor=y
 CONFIG_PACKAGE_kmod-lib-zlib-deflate=y
 CONFIG_PACKAGE_kmod-lib-zlib-inflate=y
 CONFIG_PACKAGE_kmod-lib-zstd=y
-CONFIG_PACKAGE_kmod-lib80211=y
 CONFIG_PACKAGE_kmod-libertas-usb=y
 CONFIG_PACKAGE_kmod-libphy=y
+
+
+CONFIG_PACKAGE_kmod-cfg80211=y
+CONFIG_PACKAGE_kmod-lib80211=y
 CONFIG_PACKAGE_kmod-mac80211=y
 
 CONFIG_PACKAGE_kmod-mt76-connac=y
@@ -170,9 +172,6 @@ CONFIG_PACKAGE_kmod-mt76x2u=y
 
 CONFIG_PACKAGE_kmod-net-prism54=y
 CONFIG_PACKAGE_kmod-net-rtl8192su=y
-CONFIG_PACKAGE_kmod-nf-conntrack-netlink=y
-CONFIG_PACKAGE_kmod-nf-ipt6=y
-CONFIG_PACKAGE_kmod-nf-reject6=y
 
 # CONFIG_PACKAGE_kmod-r8125 is not set
 CONFIG_PACKAGE_kmod-random-core=y
@@ -357,7 +356,7 @@ CONFIG_PACKAGE_proto-bonding=y
 CONFIG_PACKAGE_resize2fs=y
 CONFIG_PACKAGE_wget-ssl=y
 CONFIG_PACKAGE_whereis=y
-# CONFIG_PACKAGE_wireless-regdb=y
+CONFIG_PACKAGE_wireless-regdb=y
 CONFIG_PACKAGE_zlib=y
 
 # CONFIG_PACKAGE_lua-neturl=y
