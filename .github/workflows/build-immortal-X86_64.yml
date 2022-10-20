@@ -15,7 +15,7 @@ on:
         required: false
         default: 'false'
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/xlighting2017/immortalwrt
   REPO_BRANCH: master
   FEEDS_CONF: X86_64/feeds.conf.immortal
   CONFIG_FILE: X86_64/.config.immortal
