@@ -39,7 +39,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 rm -rf ./feeds/luci/applications/luci-app-openclash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
-git clone https://github.com/pymumu/smartdns.git package/luci-app-smartdns
+# git clone https://github.com/pymumu/smartdns.git package/luci-app-smartdns
 
 
 # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
