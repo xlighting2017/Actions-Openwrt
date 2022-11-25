@@ -10,11 +10,21 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# Modify default IP
+# Modify default LAN IP
 sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
 
 # 修正连接数
-sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
+echo 'net.netfilter.nf_conntrack_max=165535' >> package/base-files/files/etc/sysctl.d/10-default.conf
+
+# set defualt sys hostname
+
+# set default password
+
+# set default language & theme (make sure you have theme-Argon installed)
+
+# disable IPv6 by default
+
+# enable packet steering
 
 
 # add mosdns
