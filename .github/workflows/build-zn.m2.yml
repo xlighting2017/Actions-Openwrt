@@ -1,10 +1,10 @@
 ################################################
-# Description: Build OpenWrt for 360T7 6using GitHub Actions
+# Description: Build OpenWrt for IPQ6000 6using GitHub Actions
 # Uses:
-#    hanwckf /immortalwrt-mt798x from hanwckf
+#    sdf8057/ipq6000 from sdf8057
 ################################################
 
-name: Build 360T7
+name: Build ZN.M2
 
 on:
   repository_dispatch:
