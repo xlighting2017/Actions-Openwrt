@@ -1,12 +1,10 @@
 ################################################
-# Description: Build OpenWrt for Redmi AX 6using GitHub Actions
+# Description: Build OpenWrt for 360T7 6using GitHub Actions
 # Uses:
-#   imoutowrt/immortalwrt from CNSZTL
-#   IPQ807x patchs from Robimarko & Ansuels
-#   ECM patches from Bitthief
+#    hanwckf /immortalwrt-mt798x from hanwckf
 ################################################
 
-name: Build AX6
+name: Build 360T7
 
 on:
   repository_dispatch:
