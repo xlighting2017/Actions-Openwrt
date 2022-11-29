@@ -7,6 +7,8 @@ Building OpenWrt with GitHub Actions
 - sunxi (nanoPi Neo2, R1S H5, OrangePi Zero Plus with WiFi)
 - Rockchip (R2S and R4S)
 - x86_64, using Lean/immortalwrt OpenWrt as upstream
+- ipq6000 (ZN M2, AX18)
+- MT798x (360T7)
 
 ## Tips
 
@@ -29,6 +31,10 @@ Building OpenWrt with GitHub Actions
 - [softprops/action-gh-release](https://github.com/softprops/action-gh-release)
 - [ActionsRML/delete-workflow-runs](https://github.com/ActionsRML/delete-workflow-runs)
 - [dev-drprasad/delete-older-releases](https://github.com/dev-drprasad/delete-older-releases)
+- [sdf8057](https://github.com/sdf8057/ipq6000)
+- [hanwckf](https://github.com/hanwckf/immortalwrt-mt798x)
+
+
 
 ## License
 MIT
