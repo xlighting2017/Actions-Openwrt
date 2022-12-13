@@ -15,8 +15,8 @@ on:
         required: false
         default: 'false'
 env:
-  REPO_URL: https://github.com/xlighting2017/immortalwrt/
-  REPO_BRANCH: patch-4
+  REPO_URL: https://github.com/immortalwrt/immortalwrt/
+  REPO_BRANCH: master
   FEEDS_CONF: rockchip/feeds.conf.immortal
   CONFIG_FILE: rockchip/.config.immortal
   DIY_P1_SH: rockchip/diy-part1.sh
