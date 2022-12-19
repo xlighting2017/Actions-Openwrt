@@ -18,8 +18,8 @@ on:
     - cron: '30 0 * * 1'
         
 env:
-  REPO_URL: https://github.com/xlighting2017/immortalwrt
-  REPO_BRANCH: patch-3
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: master
   FEEDS_CONF: sunxi/feeds.conf.immortal
   CONFIG_FILE: sunxi/.config.immortal
   DIY_P1_SH: sunxi/diy-part1.sh
