@@ -22,7 +22,7 @@ on:
 env:
   REPO_URL: https://github.com/1715173329/imoutowrt
   REPO_BRANCH: master-ax3000-5.15
-  FEEDS_CONF: AX6/feeds.conf.default
+  FEEDS_CONF: AX6/feeds.conf.immortal
   CONFIG_FILE: AX6/.config
   DIY_P1_SH: AX6/diy-part1.sh
   DIY_P2_SH: AX6/diy-part2.sh
