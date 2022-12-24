@@ -18,8 +18,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/xlighting2017/lede/
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/bitthief/openwrt
+  REPO_BRANCH: ipq807x-5.15-pr
   FEEDS_CONF: AX6.with.ECM/feeds.conf.ecm
   CONFIG_FILE: AX6.with.ECM/.config
   DIY_P1_SH: AX6.with.ECM/diy-part1.sh
