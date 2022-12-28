@@ -15,7 +15,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '30 0 * * 1'
+    - cron: '30 0 * * 5'
         
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
