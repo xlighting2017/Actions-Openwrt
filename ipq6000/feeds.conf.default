@@ -6,6 +6,6 @@ src-git telephony https://github.com/openwrt/telephony.git;openwrt-21.02
 
 src-git packages https://github.com/immortalwrt/packages
 src-git luci https://github.com/immortalwrt/luci
-src-git routing.imm https://github.com/immortalwrt/routing
+src-git routing https://github.com/immortalwrt/routing
 
 # src-git small https://github.com/kenzok8/small
