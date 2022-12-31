@@ -1,12 +1,11 @@
 # use local feeds.conf.default
-src-git packages https://github.com/sdf8057/packages.git;1806
-src-git luci https://github.com/sdf8057/luci.git;1806
-src-git routing https://github.com/openwrt/routing.git;openwrt-21.02
+# src-git packages https://github.com/sdf8057/packages.git;1806
+# src-git luci https://github.com/sdf8057/luci.git;1806
+# src-git routing https://github.com/openwrt/routing.git;openwrt-21.02
 src-git telephony https://github.com/openwrt/telephony.git;openwrt-21.02
 
-# src-git packages.imm https://github.com/immortalwrt/packages.git
-# src-git luci.imm https://github.com/immortalwrt/luci.git
-# src-git routing.imm https://github.com/immortalwrt/routing.git
-
+src-git packages https://github.com/immortalwrt/packages
+src-git luci https://github.com/immortalwrt/luci
+src-git routing.imm https://github.com/immortalwrt/routing
 
 # src-git small https://github.com/kenzok8/small
