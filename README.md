@@ -3,12 +3,13 @@ Building OpenWrt with GitHub Actions
 ## Device Supported
 
 - Redmi AX6 (with or without ECM)
-- N1 (S905d, using custom Kernel + ArmVirt )
+- N1 (S905d, using custom Kernel + ArmVirt)
 - sunxi (nanoPi Neo2, R1S H5, OrangePi Zero Plus with WiFi)
 - Rockchip (R2S and R4S)
-- x86_64, using Lean/immortalwrt OpenWrt as upstream
 - ipq6000 (ZN M2, AX18)
+- ipq40xx (ASUS ACRH-17)
 - MT798x (360T7)
+- x86_64, using Lean/immortalwrt OpenWrt as upstream
 
 ## Tips
 
