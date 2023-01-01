@@ -1,0 +1,13 @@
+# use local feeds.conf
+
+# immortalwrt's  default=5.10, testing = 5.15
+src-git packages https://github.com/immortalwrt/packages.git
+src-git luci https://github.com/immortalwrt/luci.git
+src-git routing https://github.com/immortalwrt/routing.git
+
+src-git telephony https://github.com/openwrt/telephony.git
+
+#src-git-full video https://github.com/openwrt/video.git
+#src-git-full targets https://github.com/openwrt/targets.git
+#src-git-full oldpackages http://git.openwrt.org/packages.git
+#src-link custom /usr/src/openwrt/custom-feed
