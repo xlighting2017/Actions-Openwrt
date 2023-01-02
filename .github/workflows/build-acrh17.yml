@@ -1,10 +1,10 @@
 ################################################
-# Description: Build OpenWrt for ipq40xx(Asus Arch-17) using GitHub Actions
+# Description: Build OpenWrt for ipq40xx(Asus Acrh-17) using GitHub Actions
 # Uses:
 #   immortalwrt/immortalwrt from Immortalwrt
 ################################################
 
-name: Build Immortalwrt's ipq40xx
+name: Build ASUS ACRH-17
 
 on:
   repository_dispatch:
