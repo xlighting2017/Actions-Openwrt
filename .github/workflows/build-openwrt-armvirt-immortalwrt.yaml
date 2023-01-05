@@ -135,7 +135,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && !cancelled()
       with:
-        tag: Immortalwrt_Armvirt_${{ env.FILE_DATE }}
+        tag: Immortalwrt_Armvirt
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -168,17 +168,17 @@ jobs:
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
-        retain_days: 7
+        retain_days: 3
         keep_minimum_runs: 2
         delete_workflow_pattern: "Armvirt"
 
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        repo:
-        keep_latest: 3
-        delete_tag_pattern: 'Armvirt'
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+#    - name: Remove old Releases
+#      uses: dev-drprasad/delete-older-releases@v0.2.0
+#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+#      with:
+#        repo:
+#        keep_latest: 3
+#        delete_tag_pattern: 'Armvirt'
+#        delete_tags: true
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
