@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
   schedule:
-    - cron: '30 0 * * 5'
+    - cron: '30 0 * * *'
     
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -135,7 +135,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && !cancelled()
       with:
-        tag: OpenWrt_Armvirt
+        tag: Immortalwrt_Armvirt_${{ env.FILE_DATE }}
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -162,21 +162,23 @@ jobs:
               ├ KMS 
               └ Zerotier
              
-#    - name: Delete workflow runs
-#      uses: GitRML/delete-workflow-runs@main
-#      with:
-#        token: ${{ secrets.GH_TOKEN }}
-#        repository: ${{ github.repository }}
-#        retain_days: 60
-#        keep_minimum_runs: 60
-#
-#    - name: Remove old Releases
-#      uses: dev-drprasad/delete-older-releases@v0.2.0
-#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-#      with:
-#        repo:
-#        keep_latest: 30
-#        delete_tag_pattern:
-#        delete_tags: true
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        repository: ${{ github.repository }}
+        retain_days: 7
+        keep_minimum_runs: 2
+        delete_workflow_pattern: "Armvirt"
+
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.2.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        repo:
+        keep_latest: 3
+        delete_tag_pattern: 'Armvirt'
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
