@@ -151,7 +151,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: Immortalwrt_360t7_${{ env.FILE_DATE }}
+        tag: Immortalwrt_360T7_${{ env.FILE_DATE }}
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -178,7 +178,7 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 7
         keep_minimum_runs: 2
-        delete_workflow_pattern: "360t7"
+        delete_workflow_pattern: "360T7"
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.2.0
@@ -186,7 +186,7 @@ jobs:
       with:
         repo:
         keep_latest: 3
-        delete_tag_pattern: '360t7'
+        delete_tag_pattern: '360T7'
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
