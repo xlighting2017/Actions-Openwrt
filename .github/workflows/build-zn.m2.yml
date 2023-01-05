@@ -170,7 +170,7 @@ jobs:
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
-        retain_days: 7
+        retain_days: 1
         keep_minimum_runs: 2
         delete_workflow_pattern: "ZN.M2"
 
