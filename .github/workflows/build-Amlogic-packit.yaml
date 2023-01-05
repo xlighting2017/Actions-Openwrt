@@ -82,7 +82,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: (!cancelled())
       with:
-        tag: OpenWrt_${{ github.event.inputs.openwrt_board }}
+        tag: OpenWrt_${{ github.event.inputs.openwrt_board }}_${{ env.PACKAGED_OUTPUTDATE }}
         removeArtifacts: false
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
@@ -107,20 +107,20 @@ jobs:
               └ Zerotier
             
     - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
+      uses: Mattraks/delete-workflow-runs@v2
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
-        retain_days: 60
-        keep_minimum_runs: 3
+        retain_days: 7
+        keep_minimum_runs: 2
 
-#    - name: Remove old Releases
-#      uses: dev-drprasad/delete-older-releases@v0.2.0
-#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-#      with:
-#        repo:
-#        keep_latest: 30
-#        delete_tag_pattern:
-#        delete_tags: true
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.2.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        repo:
+        keep_latest: 3
+        delete_tag_pattern: ${{ github.event.inputs.openwrt_board }}
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
