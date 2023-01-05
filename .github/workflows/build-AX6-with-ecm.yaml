@@ -16,6 +16,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
+  schedule:
+    - cron: '30 0 * * *'
 
 env:
   REPO_URL: https://github.com/bitthief/openwrt
@@ -151,7 +153,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: OpenWrt_Redmi_AX6_ECM
+        tag: OpenWrt_Redmi_AX6_ECM_${{ env.FILE_DATE }}
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -171,17 +173,24 @@ jobs:
               ├ ttyd
               └ KMS
 
-#    - name: Delete workflow runs
-#      uses: GitRML/delete-workflow-runs@main
-#      with:
-#        retain_days: 1
-#        keep_minimum_runs: 3
-#
-#    - name: Remove old Releases
-#      uses: dev-drprasad/delete-older-releases@v0.1.0
-#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-#      with:
-#        keep_latest: 3
-#        delete_tags: true
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        repository: ${{ github.repository }}
+        retain_days: 7
+        keep_minimum_runs: 2
+        delete_workflow_pattern: "AX6_ECM"
+
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.2.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        repo:
+        keep_latest: 3
+        delete_tag_pattern: 'AX6_ECM'
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        
