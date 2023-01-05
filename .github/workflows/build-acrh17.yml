@@ -174,7 +174,7 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 7
         keep_minimum_runs: 2
-        delete_workflow_pattern: "ipq40xx"
+        delete_workflow_pattern: "ACRH-17"
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.2.0
