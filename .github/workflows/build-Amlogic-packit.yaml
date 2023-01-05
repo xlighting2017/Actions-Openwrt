@@ -113,7 +113,7 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 7
         keep_minimum_runs: 2
-        delete_workflow_pattern: ${{ github.event.inputs.openwrt_board }}
+        delete_workflow_pattern: 'Amlogic'
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.2.0
