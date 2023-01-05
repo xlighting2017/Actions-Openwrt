@@ -7,8 +7,8 @@
 name: Build ZN.M2
 
 on:
-  #schedule:
-  #  - cron:  '30 0 * * 6'
+  schedule:
+    - cron:  '30 0 * * *'
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -144,7 +144,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: OpenWrt_ipq6000
+        tag: OpenWrt_ipq60xx_${{ env.FILE_DATE }}
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -163,17 +163,24 @@ jobs:
               ├ SmartDNS
               ├ ttyd
               └ KMS
-#    - name: Delete workflow runs
-#      uses: GitRML/delete-workflow-runs@main
-#      with:
-#        retain_days: 1
-#        keep_minimum_runs: 3
-#
-#    - name: Remove old Releases
-#      uses: dev-drprasad/delete-older-releases@v0.1.0
-#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-#      with:
-#        keep_latest: 3
-#        delete_tags: true
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+              
+
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        repository: ${{ github.repository }}
+        retain_days: 7
+        keep_minimum_runs: 2
+        delete_workflow_pattern: "ipq60xx"
+
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.2.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        repo:
+        keep_latest: 3
+        delete_tag_pattern: 'ipq60xx'
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}              
