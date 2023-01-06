@@ -8,7 +8,7 @@ name: Build ZN.M2
 
 on:
   schedule:
-    - cron:  '30 0 * * *'
+    - cron:  '30 17 * * *'
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -170,12 +170,12 @@ jobs:
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
-        retain_days: 1
+        retain_days: 7
         keep_minimum_runs: 2
         delete_workflow_pattern: "ZN.M2"
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+      uses: dev-drprasad/delete-older-releases@v0.2.1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:
