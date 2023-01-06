@@ -17,7 +17,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '30 0 * * *'
+    - cron: '30 20 * * *'
 
 env:
   REPO_URL: https://github.com/bitthief/openwrt
@@ -184,7 +184,7 @@ jobs:
         delete_workflow_pattern: "AX6_ECM"
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+      uses: dev-drprasad/delete-older-releases@v0.2.1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:
