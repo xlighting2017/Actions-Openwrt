@@ -15,7 +15,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '30 16 * * *'
+    - cron:  '30 17 * * *'
 
 env:
   REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
@@ -181,11 +181,11 @@ jobs:
         delete_workflow_pattern: "360T7"
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+      uses: dev-drprasad/delete-older-releases@v0.2.1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:
-        keep_latest: 3
+        keep_latest: 2
         delete_tag_pattern: '360T7'
         delete_tags: true
       env:
