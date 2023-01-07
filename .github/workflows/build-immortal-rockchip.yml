@@ -117,7 +117,7 @@ jobs:
         echo "COMPILE_STATUS=success" >> $GITHUB_ENV
         echo 'rockchip' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
-        echo "FILE_DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
+        echo "FILE_DATE=$(date +"%y.%-m.%-d")" >> $GITHUB_ENV
 
     - name: Check space usage
       if: (!cancelled())
@@ -151,7 +151,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: Immortalwrt_rockchip_${{ env.FILE_DATE }}
+        tag: v${{ env.FILE_DATE }}-rockchip
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
