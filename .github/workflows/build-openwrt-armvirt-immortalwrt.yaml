@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
   schedule:
-    - cron: '30 23 * * *'
+    - cron: '30 20 * * *'
     
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
