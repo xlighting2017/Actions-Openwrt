@@ -8,7 +8,7 @@ name: Build ZN.M2
 
 on:
   schedule:
-    - cron:  '30 17 * * *'
+    - cron:  '30 16 * * *'
   repository_dispatch:
   workflow_dispatch:
     inputs:
