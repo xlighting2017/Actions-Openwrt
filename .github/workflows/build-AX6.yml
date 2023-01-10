@@ -1,12 +1,12 @@
 ################################################
-# Description: Build OpenWrt for Redmi AX 6using GitHub Actions
+# Description: Build OpenWrt for Redmi AX 6 using GitHub Actions
 # Uses:
 #   imoutowrt/immortalwrt from CNSZTL
 #   IPQ807x patchs from Robimarko & Ansuels
-#   ECM patches from Bitthief
+#   no nss-ECM
 ################################################
 
-name: Build AX6
+name: Build AX6 Imoutowrt
 
 on:
   repository_dispatch:
@@ -181,7 +181,7 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 7
         keep_minimum_runs: 2
-        delete_workflow_pattern: "AX6"
+        delete_workflow_pattern: "Imoutowrt"
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@main
