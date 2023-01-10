@@ -172,7 +172,7 @@ jobs:
               └ KMS
 
     - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@main
+      uses: Mattraks/delete-workflow-runs@latest
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
@@ -181,7 +181,7 @@ jobs:
         delete_workflow_pattern: "360T7"
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@main
+      uses: dev-drprasad/delete-older-releases@latest
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:
