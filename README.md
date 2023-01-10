@@ -16,6 +16,16 @@ Building OpenWrt with GitHub Actions
 - Reduced `.config` file to better customize the firmware.
 - Sperate Action/config file to generate different FWs.
 
+
+## Compile and release cycle:
+
+- Compile: scheduled everyday (will change later)
+  - keep workflow runs for 7 days
+  - and last 2 runs older than 7 days will be kept too
+
+- Release: only keep latest 2 releases
+
+
 ## Credits
 
 - [Microsoft Azure](https://azure.microsoft.com)
