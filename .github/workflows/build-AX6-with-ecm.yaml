@@ -181,7 +181,7 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 7
         keep_minimum_runs: 2
-        delete_workflow_pattern: "AX6_ECM"
+        delete_workflow_pattern: "ECM"
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@main
@@ -189,7 +189,7 @@ jobs:
       with:
         repo:
         keep_latest: 3
-        delete_tag_pattern: 'AX6_ECM'
+        delete_tag_pattern: 'ECM'
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
