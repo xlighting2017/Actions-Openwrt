@@ -121,8 +121,11 @@ jobs:
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
         echo "COMPILE_STATUS=success" >> $GITHUB_ENV
-        echo 'sunxi_cortexa53' > DEVICE_NAME
+        
+        grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
+        # echo 'ipq40xx_asus_rt-ac42u' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
+        
         echo "FILE_DATE=$(date +"%y.%-m.%-d")" >> $GITHUB_ENV
     - name: Check space usage
       if: (!cancelled())
@@ -143,6 +146,7 @@ jobs:
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "ORGANIZE_STATUS=success" >> $GITHUB_ENV
+        
     - name: Upload firmware to action artifact
       uses: actions/upload-artifact@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
