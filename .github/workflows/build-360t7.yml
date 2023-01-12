@@ -146,7 +146,7 @@ jobs:
       if: env.COMPILE_STATUS == 'success' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
-        rm -rf packages
+        # rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "ORGANIZE_STATUS=success" >> $GITHUB_ENV
 
