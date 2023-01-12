@@ -65,6 +65,7 @@ jobs:
         sudo -E rm -f /swapfile
         sudo -E docker image prune -a -f
         sudo -E snap set system refresh.retain=2
+        sudo -E apt update -y
         sudo -E apt -y purge azure-cli dotnet* firefox ghc* google* llvm* mono* mysql* openjdk* php* zulu* powershell* msodbc* android*
         sudo -E apt -y autoremove --purge
         sudo -E apt clean
