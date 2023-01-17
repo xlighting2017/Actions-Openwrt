@@ -8,6 +8,7 @@ name: Build 360T7
 
 on:
   repository_dispatch:
+    types: [Source_Code_Update, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
