@@ -6,7 +6,9 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 # File: .github/workflows/update-checker.yml
-# Description: Source code update checker
+# Description: 
+#  Check multiple repos to see if there is an update, if so, 
+#  send corresponding repository_dispatch event to trigger certain Github actions
 #
 
 name: Update Checker
@@ -22,10 +24,9 @@ on:
 
 jobs:
   check:
+  
     runs-on: ubuntu-latest
-
     steps:
-
     - name: Get Commit Hash
       id: getHash
       run: |
