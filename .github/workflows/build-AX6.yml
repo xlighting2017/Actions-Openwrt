@@ -16,12 +16,12 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  #schedule:
-  #  - cron: '30 18 * * *'
+  schedule:
+    - cron: '30 18 * * *'
 
 env:
   REPO_URL: https://github.com/1715173329/imoutowrt
-  REPO_BRANCH: master-ax3000-5.15
+  REPO_BRANCH: master-ipq807x-5.15
   FEEDS_CONF: AX6/feeds.conf.immortal
   CONFIG_FILE: AX6/.config
   DIY_P1_SH: AX6/diy-part1.sh
