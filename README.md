@@ -2,13 +2,13 @@ Building OpenWrt with GitHub Actions
 
 ## Device Supported
 
-- Redmi AX6 (with or without ECM)
-- N1 (S905d, using custom Kernel + ArmVirt)
-- sunxi (nanoPi Neo2, R1S H5, OrangePi Zero Plus with WiFi)
-- Rockchip (R2S and R4S)
-- ipq6000 (ZN M2, AX18)
+- Redmi AX6 (~~with or~~ without NSS offloading)
+- N1 (Amlogic S905d, using custom Kernel + ArmVirt)
+- sunxi (nanoPi Neo2, R1S H5 with ***weak*** WiFi, OrangePi Zero Plus)
+- Rockchip (nanoPi R2S and R4S)
+- ipq6000 (ZN M2 /cmiot AX18, **no WiFi _yet_**)
 - ipq40xx (ASUS ACRH-17)
-- MT798x (360T7)
+- MT798x (Qihoo 360T7)
 - x86_64, using Lean/immortalwrt OpenWrt as upstream
 
 ## Tips
@@ -19,11 +19,11 @@ Building OpenWrt with GitHub Actions
 
 ## Compile and release cycle:
 
-- Compile: scheduled everyday (will change later)
+- Compile: scheduled **everyday** (will change later to be triggered by upstream code commit)
   - keep workflow runs for 7 days
   - and last 2 runs older than 7 days will be kept too
 
-- Release: only keep latest 2 releases
+- Release: only keep latest 3 releases
 
 
 ## Credits
