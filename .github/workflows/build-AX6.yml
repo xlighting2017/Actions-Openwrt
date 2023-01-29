@@ -20,8 +20,8 @@ on:
     - cron: '30 18 * * 6'
 
 env:
-  REPO_URL: https://github.com/1715173329/imoutowrt
-  REPO_BRANCH: master-ipq807x-5.15
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: master
   FEEDS_CONF: AX6/feeds.conf.immortal
   CONFIG_FILE: AX6/.config
   DIY_P1_SH: AX6/diy-part1.sh
