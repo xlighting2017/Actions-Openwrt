@@ -69,17 +69,25 @@ CONFIG_TARGET_IMAGES_GZIP=y
 CONFIG_ALL_KMODS=n
 CONFIG_ALL_NONSHARED=n
 
-## Package.tweak
-CONFIG_PACKAGE_firewall4=n
-CONFIG_PACKAGE_nftables=n
-CONFIG_PACKAGE_kmod-nft-offload=n
-CONFIG_PACKAGE_iptables=y
-CONFIG_PACKAGE_block-mount=y
-CONFIG_PACKAGE_default-settings-chn=y
-CONFIG_PACKAGE_iptables-nft=n
-CONFIG_PACKAGE_kmod-nf-nathelper=y
-CONFIG_PACKAGE_kmod-nf-nathelper-extra=y
+#语言
+CONFIG_LUCI_LANG_zh_Hans=y
+
+# revert FW4 for now
+# CONFIG_PACKAGE_firewall4 is not set
+# CONFIG_PACKAGE_nftables is not set
+# CONFIG_PACKAGE_kmod-nft-offload is not set
+# CONFIG_PACKAGE_iptables-nft is not set
+# CONFIG_PACKAGE_ip6tables-nft is not set
+# CONFIG_PACKAGE_ipv6-helper is not set
+
+CONFIG_PACKAGE_firewall=y
+CONFIG_PACKAGE_iptables-zz-legacy=y
+CONFIG_PACKAGE_kmod-ipt-offload=y
+CONFIG_PACKAGE_kmod-ipt-raw=y
+
+
 CONFIG_PACKAGE_uttpd=y
+
 CONFIG_PACKAGE_luci=y
 CONFIG_PACKAGE_luci-compat=y
 CONFIG_PACKAGE_luci-lib-base=y
