@@ -61,32 +61,28 @@ jobs:
           
       - name: Get Commit Hash
         id: getHash
-        env:
-          REPO_USER: ${{ steps.check.outputs.REPO_USER }}
-          REPO_NAME: ${{ steps.check.outputs.REPO_NAME }}
-          REPO_BRANCH: ${{ steps.check.outputs.REPO_BRANCH }}
         run: |
-          git clone --depth=1 https://github.com/$REPO_USER/$REPO_NAME -b $REPO_BRANCH $REPO_BRANCH
+          git clone --depth=1 https://github.com/${{env.REPO_USER}}/${{env.REPO_NAME}} -b ${{env.BRANCH}} ${{env.BRANCH}}
           echo "commitHash=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
       - name: Compare Commit Hash
         id: cacheHash
         uses: actions/cache@main
         with:
-          path: .${{ steps.check.outputs.REPO_USER }}.commitHash
-          key: HEAD-${{ steps.getHash.outputs.commitHash }}
+          path: .${{ env.REPO_USER }}.commitHash
+          key: HEAD-${{ env.commitHash }}
 
       - name: Save New Commit Hash
         if: steps.cacheHash.outputs.cache-hit != 'true'
         run: |
-          echo ${{ steps.getHash.outputs.commitHash }} | tee .${{ steps.check.outputs.REPO_USER }}.commitHash
+          echo ${{ env.commitHash }} | tee .${{ env.REPO_USER }}.commitHash
 
       - name: Trigger build
         if: steps.cacheHash.outputs.cache-hit != 'true'
         uses: peter-evans/repository-dispatch@main
         with:
           token: ${{ secrets.ACTIONS_TRIGGER }}
-          event-type: "Source_Code_Update_${{ steps.check.outputs.REPO_USER }}"
+          event-type: "Source_Code_Update_${{ env.REPO_USER }}"
 
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
