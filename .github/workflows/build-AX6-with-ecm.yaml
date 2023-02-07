@@ -9,7 +9,6 @@
 name: Build AX6 with ECM
 
 on:
-  repository_dispatch:
   workflow_dispatch:
     inputs:
       ssh:
