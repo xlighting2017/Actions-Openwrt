@@ -61,6 +61,10 @@ jobs:
           
       - name: Get Commit Hash
         id: getHash
+        env:
+          REPO_USER: ${{ steps.check.outputs.REPO_USER }}
+          REPO_NAME: ${{ steps.check.outputs.REPO_NAME }}
+          REPO_BRANCH: ${{ steps.check.outputs.REPO_BRANCH }}
         run: |
           git clone --depth=1 https://github.com/$REPO_USER/$REPO_NAME -b $REPO_BRANCH $REPO_BRANCH
           echo "commitHash=$(git rev-parse HEAD)" >> $GITHUB_ENV
