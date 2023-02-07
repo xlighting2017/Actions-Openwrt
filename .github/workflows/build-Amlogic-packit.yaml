@@ -66,9 +66,19 @@ jobs:
 #     if: github.event.repository.owner.id == github.event.sender.id
     
     steps:
+    - name: Package Armvirt as OpenWrt(auto triggered)
+      if: (!cancelled() && ${{github.event.event_type}} == "Source_Code_Update_ophub")
+      uses: ophub/amlogic-s9xxx-openwrt@main
+      with:
+        openwrt_path: https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armvirt-64-default-rootfs.tar.gz
+        openwrt_board: "s905d"
+        openwrt_kernel: "5.15.84_6.1.1"
+        auto_kernel: true
+        openwrt_size: "960"
+        gh_token: ${{ secrets.GH_TOKEN }}
     
-    - name: Package Armvirt as OpenWrt
-      if: (!cancelled())
+    - name: Package Armvirt as OpenWrt(with input)
+      if: (!cancelled() && ${{ github.event.inputs.openwrt_board }} !== "")
       uses: ophub/amlogic-s9xxx-openwrt@main
       with:
         openwrt_path: https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armvirt-64-default-rootfs.tar.gz
@@ -83,7 +93,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: (!cancelled())
       with:
-        tag: OpenWrt_${{ github.event.inputs.openwrt_board }}_${{ env.PACKAGED_OUTPUTDATE }}
+        tag: OpenWrt_Amlogic_${{ github.event.inputs.openwrt_board }}_${{ env.PACKAGED_OUTPUTDATE }}
         removeArtifacts: false
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
@@ -117,12 +127,12 @@ jobs:
         delete_workflow_pattern: 'Amlogic'
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+      uses: dev-drprasad/delete-older-releases@master
       if: (!cancelled())
       with:
         repo:
         keep_latest: 3
-        delete_tag_pattern: ${{ github.event.inputs.openwrt_board }}
+        delete_tag_pattern: 'Amlogic'
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
