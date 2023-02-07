@@ -1,5 +1,5 @@
 ################################################
-# Description: Build OpenWrt for 360T7 6using GitHub Actions
+# Description: Build OpenWrt for 360T7 using GitHub Actions
 # Uses:
 #    hanwckf /immortalwrt-mt798x from hanwckf
 ################################################
@@ -8,15 +8,15 @@ name: Build 360T7
 
 on:
   repository_dispatch:
-    types: [Source_Code_Update, Package_Luci_Update]
+    types: [Source_Code_Update_hanwckf, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron:  '30 16 * * 5'
+  #schedule:
+  #  - cron:  '30 16 * * 5'
 
 env:
   REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
