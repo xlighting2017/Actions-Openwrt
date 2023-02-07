@@ -82,8 +82,7 @@ jobs:
         uses: peter-evans/repository-dispatch@main
         with:
           token: ${{ secrets.ACTIONS_TRIGGER }}
-          event-type: "Source Code Update"
-          client-payload: '{"repo": "${{ steps.check.outputs.REPO_USER }}"}'
+          event-type: "Source_Code_Update_${{ steps.check.outputs.REPO_USER }}"
 
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
