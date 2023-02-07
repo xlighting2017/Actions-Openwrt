@@ -8,6 +8,7 @@ name: Build ASUS ACRH-17
 
 on:
   repository_dispatch:
+    types: [Source_Code_Update_immortalwrt, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
