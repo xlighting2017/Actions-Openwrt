@@ -170,13 +170,15 @@ jobs:
             Immortalwrt's repo, ipq40xx 固件精简版, ASUS ACRH-17
             编译时间: ${{ env.FILE_DATE }}
             
-            [TODO]Default IP: 192.168.199.1
+            [TODO]Default IP: 192.168.99.1
             Default username: root
             Default password: password
             
             [TODO]插件列表： 
               ├ ddns
               ├ filetransfer
+              ├ frpc
+              ├ passwall
               ├ OpenClash
               ├ SmartDNS
               ├ ttyd
@@ -195,7 +197,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@master
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        repo:
+        repo: ${{ github.repository }}
         keep_latest: 3
         delete_tag_pattern: 'ipq40xx'
         delete_tags: true
