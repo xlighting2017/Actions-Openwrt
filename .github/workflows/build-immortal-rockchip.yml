@@ -172,16 +172,22 @@ jobs:
             Immortalwrt's repo, rockchip 固件精简版, nanoPi R2S/R4S
             编译时间: ${{ env.FILE_DATE }}
             
-            [TODO]Default IP: 192.168.199.1
+            Default IP: 192.168.99.1
             Default username: root
             Default password: password
             
-            [TODO]插件列表： 
+            插件列表： 
               ├ ddns
+              ├ docker
               ├ filetransfer
+              ├ frpc
+              ├ passwall              
               ├ OpenClash
               ├ SmartDNS
               ├ ttyd
+              ├ usb-printer
+              ├ WireGuard
+              ├ Zerotier
               └ KMS
 
 
