@@ -19,9 +19,9 @@ Building OpenWrt with GitHub Actions
 
 ## Compile and release cycle:
 
-- Compile: scheduled **every 3 days**
-  - keep workflow runs for 7 days
-  - and last 2 runs older than 7 days will be kept too
+- Compile: triggered by upstream changes
+  - keep workflow runs for 3 days
+  - and last 2 runs older than 3 days will be kept too
 
 - Release: only keep latest 3 releases
 
