@@ -130,7 +130,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@master
       if: (!cancelled())
       with:
-        repo:
+        repo: ${{ github.repository }}
         keep_latest: 3
         delete_tag_pattern: 'Amlogic'
         delete_tags: true
