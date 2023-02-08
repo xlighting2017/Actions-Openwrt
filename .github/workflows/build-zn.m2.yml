@@ -184,7 +184,7 @@ jobs:
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
-        retain_days: 7
+        retain_days: 3
         keep_minimum_runs: 2
         delete_workflow_pattern: "ZN.M2"
 
@@ -192,7 +192,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@master
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        repo:
+        repo: ${{ github.repository }}
         keep_latest: 3
         delete_tag_pattern: 'ipq60xx'
         delete_tags: true
