@@ -180,6 +180,7 @@ jobs:
             插件列表： 
               ├ ddns
               ├ filetransfer
+              ├ frpc
               ├ OpenClash
               ├ SmartDNS
               ├ ttyd
