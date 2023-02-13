@@ -65,7 +65,7 @@ jobs:
     timeout-minutes: 420 # Add Time
     steps:
     - name: Package Armvirt as OpenWrt(auto triggered)
-      if: ${{ github.event.event_type == 'Source_Code_Update_ophub' && !cancelled() }}
+      if: github.event.event_type == 'Source_Code_Update_ophub' && (!cancelled())
       uses: ophub/amlogic-s9xxx-openwrt@main
       with:
         openwrt_path: https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armvirt-64-default-rootfs.tar.gz
@@ -76,7 +76,7 @@ jobs:
         gh_token: ${{ secrets.GH_TOKEN }}
     
     - name: Package Armvirt as OpenWrt(with input)
-      if: ${{ github.event.inputs.openwrt_board != '' && !cancelled() }}
+      if: github.event.inputs.openwrt_board != '' && (!cancelled())
       uses: ophub/amlogic-s9xxx-openwrt@main
       with:
         openwrt_path: https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armvirt-64-default-rootfs.tar.gz
@@ -89,7 +89,7 @@ jobs:
     - name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@main
-      if: (!cancelled())
+      if:  env.PACKAGED_STATUS == 'success' && (!cancelled())
       with:
         tag: OpenWrt_Amlogic_${{ github.event.inputs.openwrt_board }}_${{ env.PACKAGED_OUTPUTDATE }}
         removeArtifacts: false
@@ -117,6 +117,7 @@ jobs:
             
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
+      if:  env.PACKAGED_STATUS == 'success' && (!cancelled())
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
@@ -126,7 +127,7 @@ jobs:
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@master
-      if: (!cancelled())
+      if:  env.PACKAGED_STATUS == 'success' && (!cancelled())
       with:
         repo: ${{ github.repository }}
         keep_latest: 3
