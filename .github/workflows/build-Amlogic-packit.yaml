@@ -65,7 +65,7 @@ jobs:
     timeout-minutes: 420 # Add Time
     steps:
     - name: Package Armvirt as OpenWrt(auto triggered)
-      if: ${{ github.event_name == 'repository_dispatch' }} && ${{ github.event.action == 'Source_Code_Update_ophub' }} && (!cancelled())
+      if: github.event_name == 'repository_dispatch' && github.event.action == 'Source_Code_Update_ophub' && !cancelled()
       uses: ophub/amlogic-s9xxx-openwrt@main
       with:
         openwrt_path: https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armvirt-64-default-rootfs.tar.gz
@@ -76,7 +76,7 @@ jobs:
         gh_token: ${{ secrets.GH_TOKEN }}
     
     - name: Package Armvirt as OpenWrt(with input)
-      if: ${{ github.event_name == 'workflow_dispatch' }} && github.event.inputs.openwrt_board != '' && (!cancelled())
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.openwrt_board != '' && (!cancelled())
       uses: ophub/amlogic-s9xxx-openwrt@main
       with:
         openwrt_path: https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armvirt-64-default-rootfs.tar.gz
