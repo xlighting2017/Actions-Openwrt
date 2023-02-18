@@ -57,12 +57,12 @@ on:
         default: "960"
     
 env:
-  TZ: Asia/Shanghai
+  TZ: 'Asia/Shanghai'
+  openwrt_board: 's905d'
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
-    timeout-minutes: 420 # Add Time
+    runs-on: ubuntu-latest
     steps:
     - name: Package Armvirt as OpenWrt(auto triggered)
       if: github.event_name == 'repository_dispatch' && github.event.action == 'Source_Code_Update_ophub' && !cancelled()
@@ -85,13 +85,15 @@ jobs:
         auto_kernel: ${{ github.event.inputs.auto_kernel }}
         openwrt_size: ${{ github.event.inputs.openwrt_size }}
         gh_token: ${{ secrets.GH_TOKEN }}
+      env:
+        openwrt_board: ${{ github.event.inputs.openwrt_board }}
 
     - name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@main
       if:  env.PACKAGED_STATUS == 'success' && (!cancelled())
       with:
-        tag: OpenWrt_Amlogic_${{ github.event.inputs.openwrt_board }}_${{ env.PACKAGED_OUTPUTDATE }}
+        tag: OpenWrt_Amlogic_${{ env.openwrt_board }}_${{ env.PACKAGED_OUTPUTDATE }}
         removeArtifacts: false
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
