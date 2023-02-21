@@ -69,7 +69,7 @@ jobs:
           mkdir ~/.cache
           echo "$(git rev-parse HEAD)" > ~/.cache/${{ env.REPO_USER }}-commitHash
           
-          cd /home/runner/.cache/${{ env.REPO_USER }}-commitHash
+          cd /home/runner/.cache/
           ls -R | head -n 15
 
       - name: Compare Commit Hash
