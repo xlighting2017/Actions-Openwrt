@@ -16,7 +16,7 @@ name: Update Checker
 on:
   workflow_dispatch:
   schedule:
-    - cron: 30 22 * * *
+    - cron: 30 19 * * *
 
 jobs:
   check:
@@ -66,14 +66,14 @@ jobs:
         id: cacheHash
         uses: actions/cache/restore@main
         with:
-          path: .${{ env.REPO_USER }}.commitHash
+          path: ${{ env.REPO_USER }}-commitHash
           key: HEAD-${{ env.commitHash }}
 
       - name: Save New Commit Hash
         if: steps.cacheHash.outputs.cache-hit != 'true'
         uses: actions/cache/save@main
         with:
-          path: .${{ env.REPO_USER }}.commitHash
+          path: ${{ env.REPO_USER }}-commitHash
           key: HEAD-${{ env.commitHash }}
 
       - name: Trigger build
