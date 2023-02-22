@@ -67,7 +67,7 @@ jobs:
           echo "commitHash=$(git rev-parse HEAD)" >> $GITHUB_ENV
           
           mkdir ~/.cache
-          echo ${{ env.commitHash }} > ~/.cache/${{ env.REPO_USER }}-commitHash
+          echo "${{ env.commitHash }}" > ~/.cache/${{ env.REPO_USER }}-commitHash
 
       - name: Compare Commit Hash
         id: cacheHash
