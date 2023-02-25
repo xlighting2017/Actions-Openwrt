@@ -25,7 +25,7 @@ CONFIG_FEED_routing=y
 CONFIG_FEED_telephony=y
 CONFIG_FEED_nss_packages=y
 
-# CONFIG_ALL_KMODS=y
+CONFIG_ALL_KMODS=y
 
 CONFIG_OVERRIDE_PKGS="nss-firmware qca-nss-dp qca-ssdk"
 
@@ -121,16 +121,17 @@ CONFIG_NF_CONNTRACK_DSCPREMARK_EXT=y
 CONFIG_LUCI_LANG_zh_Hans=y
 
 # revert FW4 for now
-# CONFIG_PACKAGE_firewall4 is not set
-# CONFIG_PACKAGE_nftables is not set
-# CONFIG_PACKAGE_kmod-nft-offload is not set
-# CONFIG_PACKAGE_iptables-nft is not set
-# CONFIG_PACKAGE_ip6tables-nft is not set
+CONFIG_PACKAGE_firewall4=y
+CONFIG_PACKAGE_nftables=y
+CONFIG_PACKAGE_kmod-nft-offload=y
+CONFIG_PACKAGE_iptables-nft=y
+CONFIG_PACKAGE_ip6tables-nft=y
+CONFIG_PACKAGE_xtables-nft=m
 
-CONFIG_PACKAGE_firewall=y
-CONFIG_PACKAGE_iptables-zz-legacy=y
-CONFIG_PACKAGE_kmod-ipt-offload=y
-CONFIG_PACKAGE_kmod-ipt-raw=y
+# CONFIG_PACKAGE_firewall=y
+# CONFIG_PACKAGE_iptables-zz-legacy=y
+# CONFIG_PACKAGE_kmod-ipt-offload=y
+# CONFIG_PACKAGE_kmod-ipt-raw=y
 
 ## Package.tweak
 CONFIG_PACKAGE_default-settings-chn=y
