@@ -100,7 +100,8 @@ CONFIG_NSS_DRV_VLAN_ENABLE=y
 CONFIG_PACKAGE_kmod-qca-ssdk=y
 # CONFIG_PACKAGE_kmod-qca-ssdk-nohnat=y
 CONFIG_PACKAGE_kmod-qca-mcs=y
-CONFIG_PACKAGE_kmod-qca-nss-ecm=y
+
+# CONFIG_PACKAGE_kmod-qca-nss-ecm=y
 
 CONFIG_PACKAGE_qca-ssdk-shell=y
 CONFIG_PACKAGE_nss-eip-firmware=y
