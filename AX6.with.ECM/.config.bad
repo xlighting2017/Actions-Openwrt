@@ -42,9 +42,9 @@ CONFIG_PACKAGE_kmod-qca-nss-drv-bridge-mgr=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-gre=y
 # CONFIG_PACKAGE_kmod-qca-nss-drv-igs is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-ipsecmgr is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-l2tpv2 is not set
+CONFIG_PACKAGE_kmod-qca-nss-drv-l2tpv2=y
 # CONFIG_PACKAGE_kmod-qca-nss-drv-lag-mgr is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-map-t is not set
+CONFIG_PACKAGE_kmod-qca-nss-drv-map-t=y
 # CONFIG_PACKAGE_kmod-qca-nss-drv-match is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-netlink is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-ovpn-link is not set
@@ -70,9 +70,9 @@ CONFIG_NSS_DRV_CRYPTO_ENABLE=y
 # CONFIG_NSS_DRV_IPV4_REASM_ENABLE is not set
 # CONFIG_NSS_DRV_IPV6_REASM_ENABLE is not set
 # CONFIG_NSS_DRV_IPSEC_ENABLE is not set
-# CONFIG_NSS_DRV_L2TP_ENABLE is not set
+CONFIG_NSS_DRV_L2TP_ENABLE=y
 # CONFIG_NSS_DRV_LAG_ENABLE is not set
-# CONFIG_NSS_DRV_MAPT_ENABLE is not set
+CONFIG_NSS_DRV_MAPT_ENABLE=y
 # CONFIG_NSS_DRV_MATCH_ENABLE is not set
 # CONFIG_NSS_DRV_MIRROR_ENABLE is not set
 # CONFIG_NSS_DRV_OAM_ENABLE is not set
