@@ -2,7 +2,7 @@ Building OpenWrt with GitHub Actions
 
 ## Device Supported
 
-- Redmi AX6 (with or without NSS offloading, ~~no WiFi Offloading at the moment~~)
+- Redmi AX6 (with or without NSS offloading, **no WiFi Offloading at the moment**)
 - N1 (Amlogic S905d, using custom Kernel + ArmVirt)
 - sunxi (nanoPi Neo2, R1S H5 with ***weak*** WiFi, OrangePi Zero Plus)
 - Rockchip (nanoPi R2S and R4S)
