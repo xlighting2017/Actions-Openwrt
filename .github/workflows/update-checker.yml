@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel]
+        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, bitthief/openwrt]
         
     steps:
       - name: Check All Code Bases
@@ -43,6 +43,7 @@ jobs:
           export HANWCKF_BRANCH="openwrt-21.02"
           export IMMORTALWRT_BRANCH="master"
           export OPHUB_BRANCH="main"
+          export BITTHIEF_BRANCH="master"
           
           if [ $REPO_USER == sdf8057 ]
           then
@@ -53,6 +54,9 @@ jobs:
           elif [ $REPO_USER == ophub ]
           then
             export BRANCH=$OPHUB_BRANCH
+          elif [ $REPO_USER == bitthief ]
+          then
+            export BRANCH=$BITTHIEF_BRANCH
           else
             export BRANCH=$IMMORTALWRT_BRANCH
           fi
