@@ -9,6 +9,8 @@
 name: Build AX6 with ECM
 
 on:
+  repository_dispatch:
+    types: [Source_Code_Update_bitthief, Package_Luci_Update]  
   workflow_dispatch:
     inputs:
       ssh:
