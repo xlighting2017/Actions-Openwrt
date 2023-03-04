@@ -418,6 +418,9 @@ CONFIG_OPENSSL_WITH_WHIRLPOOL=y
 # Engine/Hardware Support
 #
 CONFIG_OPENSSL_ENGINE=y
+# CONFIG_OPENSSL_ENGINE_BUILTIN is not set
+CONFIG_PACKAGE_libopenssl-afalg=y
+# CONFIG_PACKAGE_libopenssl-afalg_sync is not set
 CONFIG_PACKAGE_libopenssl-conf=y
 CONFIG_PACKAGE_libopenssl-devcrypto=y
 CONFIG_PACKAGE_libopenssl-gost_engine=y
