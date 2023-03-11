@@ -9,8 +9,8 @@
 name: Build AX6 Imoutowrt
 
 on:
-  repository_dispatch:
-    types: [Source_Code_Update_immortalwrt, Package_Luci_Update]
+  #repository_dispatch:
+  #  types: [Source_Code_Update_immortalwrt, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
