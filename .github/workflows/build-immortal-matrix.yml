@@ -10,12 +10,6 @@ name: Build Immortalwrt
 on:
   repository_dispatch:
     types: [Source_Code_Update_immortalwrt, Package_Luci_Update]
-    
-  workflow_dispatch:
-    inputs:
-    
-  #schedule:
-  #  - cron: '30 20 * * *'
         
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -34,40 +28,40 @@ jobs:
         TARGET: [Armvirt, X86_64, ipq40xx, ipq807x, sunxi, rockchip]
     steps:
     - name: Check All Targets
-        id: check
-        env:
-          TARGET: ${{ matrix.TARGET }}
-        run: |
-          export FEEDS_CONF="$(echo ${TARGET}/feeds.conf.immortal)"
-          export CONFIG_FILE="$(echo ${TARGET}/.conf.immortal)"
-          export DIY_P1_SH="$(echo ${TARGET}/diy-part1.sh)"
-          export DIY_P2_SH="$(echo ${TARGET}/diy-part2.sh)"
-          
-          echo "FEEDS_CONF=$FEEDS_CONF" >> $GITHUB_ENV
-          echo "CONFIG_FILE=$CONFIG_FILE" >> $GITHUB_ENV
-          echo "DIY_P1_SH=$DIY_P1_SH" >> $GITHUB_ENV
-          echo "DIY_P2_SH=$DIY_P2_SH" >> $GITHUB_ENV
-          
-          if [ $TARGET == "Armvirt" ]
-          then
-            export DEVICE="Amlogic/斐讯N1"
-          elif [ $TARGET == "ipq40xx" ]
-          then
-            export DEVICE="ASUS ACRH-17"
-          elif [ $TARGET == "ipq807x" ]
-          then
-            export DEVICE="Redmi AX6"
-          elif [ $TARGET == "sunxi" ]
-          then
-            export DEVICE="nanoPi Neo2, R1S H5, OrangePi Zero Plus"
-          elif [ $TARGET == "rockchip" ]
-          then
-            export DEVICE="nanoPi R2S/R4S/R5S"
-          else
-            export DEVICE="X86_64"
-          fi
-          
-          echo "DEVICE=$DEVICE" >> $GITHUB_ENV
+      id: check
+      env:
+        TARGET: ${{ matrix.TARGET }}
+      run: |
+        export FEEDS_CONF="$(echo ${TARGET}/feeds.conf.immortal)"
+        export CONFIG_FILE="$(echo ${TARGET}/.conf.immortal)"
+        export DIY_P1_SH="$(echo ${TARGET}/diy-part1.sh)"
+        export DIY_P2_SH="$(echo ${TARGET}/diy-part2.sh)"
+
+        echo "FEEDS_CONF=$FEEDS_CONF" >> $GITHUB_ENV
+        echo "CONFIG_FILE=$CONFIG_FILE" >> $GITHUB_ENV
+        echo "DIY_P1_SH=$DIY_P1_SH" >> $GITHUB_ENV
+        echo "DIY_P2_SH=$DIY_P2_SH" >> $GITHUB_ENV
+
+        if [ $TARGET == "Armvirt" ]
+        then
+          export DEVICE="Amlogic/斐讯N1"
+        elif [ $TARGET == "ipq40xx" ]
+        then
+          export DEVICE="ASUS ACRH-17"
+        elif [ $TARGET == "ipq807x" ]
+        then
+          export DEVICE="Redmi AX6"
+        elif [ $TARGET == "sunxi" ]
+        then
+          export DEVICE="nanoPi Neo2, R1S H5, OrangePi Zero Plus"
+        elif [ $TARGET == "rockchip" ]
+        then
+          export DEVICE="nanoPi R2S/R4S/R5S"
+        else
+          export DEVICE="X86_64"
+        fi
+
+        echo "DEVICE=$DEVICE" >> $GITHUB_ENV
     
     - name: Checkout
       uses: actions/checkout@v3
