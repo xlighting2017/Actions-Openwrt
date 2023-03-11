@@ -112,7 +112,7 @@ jobs:
         
     - name: Load custom feeds
       run: |
-        [ -e ${{env.FEEDS_CONF}} ] && mv ${{env.FEEDS_CONF}} openwrt/feeds.conf.default
+        [[ -e "${{env.FEEDS_CONF}}" ]] && cp -f "${{env.FEEDS_CONF}}" openwrt/feeds.conf.default
         chmod +x ${{env.DIY_P1_SH}}
         cd openwrt
         $GITHUB_WORKSPACE/${{env.DIY_P1_SH}}
@@ -125,8 +125,8 @@ jobs:
 
     - name: Load custom configuration
       run: |
-        [ -e files ] && mv files openwrt/files
-        [ -e ${{env.CONFIG_FILE}} ] && mv ${{env.CONFIG_FILE}} openwrt/.config
+        [[ -d files ]] && cp -f files openwrt/files
+        [[ -e "${{env.CONFIG_FILE}}" ]] && cp -f "${{env.CONFIG_FILE}}" openwrt/.config
         # Modify the version number
         echo CONFIG_VERSION_CODE="$(TZ=UTC-8 date "+%Y.%m.%d")" >> openwrt/.config
         chmod +x ${{env.DIY_P2_SH}}
