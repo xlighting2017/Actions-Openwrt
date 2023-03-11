@@ -92,11 +92,6 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-    
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-    
         
     - name: Download package
       id: package
@@ -150,7 +145,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: OpenWrt_x86_64_Immortalwrt
+        tag: v${{ env.FILE_DATE }}-x86_64_Immortalwrt
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -165,22 +160,28 @@ jobs:
             插件列表： 
               ├ ddns
               ├ filetransfer
+              ├ frpc
               ├ OpenClash
               ├ SmartDNS
               ├ ttyd
               └ KMS
 
-#    - name: Delete workflow runs
-#      uses: GitRML/delete-workflow-runs@main
-#      with:
-#        retain_days: 1
-#        keep_minimum_runs: 3
-#
-#    - name: Remove old Releases
-#      uses: dev-drprasad/delete-older-releases@v0.1.0
-#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-#      with:
-#        keep_latest: 3
-#        delete_tags: true
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        repository: ${{ github.repository }}
+        retain_days: 3
+        keep_minimum_runs: 2
+        delete_workflow_pattern: "X86_64"
+
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@master
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        repo: ${{ github.repository }}
+        keep_latest: 3
+        delete_tag_pattern: 'X86_64'
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
