@@ -112,7 +112,7 @@ jobs:
         
     - name: Load custom feeds
       run: |
-        [[ -e "${{env.FEEDS_CONF}}" ]] && cp -f "${{env.FEEDS_CONF}}" openwrt/feeds.conf.default
+        [[ -e "${{env.FEEDS_CONF}}" ]] && cp -f ${{env.FEEDS_CONF}} openwrt/feeds.conf.default
         chmod +x ${{env.DIY_P1_SH}}
         cd openwrt
         $GITHUB_WORKSPACE/${{env.DIY_P1_SH}}
@@ -126,9 +126,7 @@ jobs:
     - name: Load custom configuration
       run: |
         [[ -d files ]] && cp -f files openwrt/files
-        [[ -e "${{env.CONFIG_FILE}}" ]] && cp -f "${{env.CONFIG_FILE}}" openwrt/.config
-        # Modify the version number
-        echo CONFIG_VERSION_CODE="$(TZ=UTC-8 date "+%Y.%m.%d")" >> openwrt/.config
+        [[ -e "${{ env.CONFIG_FILE }}" ]] && cp -f ${{ env.CONFIG_FILE }} openwrt/.config
         chmod +x ${{env.DIY_P2_SH}}
         cd openwrt
         $GITHUB_WORKSPACE/${{env.DIY_P2_SH}}
@@ -149,17 +147,19 @@ jobs:
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
         echo "COMPILE_STATUS=success" >> $GITHUB_ENV
-        echo "FILE_DATE=$(date +"%y.%-m.%-d")" >> $GITHUB_ENV
+        
+        export FILE_DATE="$(date +"%y.%-m.%-d")"
+        echo "FILE_DATE=$FILE_DATE" >> $GITHUB_ENV
         
         # grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         # echo 'sunxi_cortexa53' > DEVICE_NAME
         # [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
         
-        if [[ ${{ matrix.TARGET }} == "Armvirt" || ${{ matrix.TARGET }} == "X86_64" ]]
+        if [[ "${{ matrix.TARGET }}" == "Armvirt" || "${{ matrix.TARGET }}" == "X86_64" ]]
         then
           export RELEASE_TAG="Immortalwrt_${{ matrix.TARGET }}"
         else
-          export RELEASE_TAG="v$FILE_DATE-${{ matrix.TARGET }}"
+          export RELEASE_TAG="v${FILE_DATE}-${{ matrix.TARGET }}"
         fi
         echo "RELEASE_TAG=$RELEASE_TAG" >> $GITHUB_ENV
         
