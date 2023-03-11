@@ -112,7 +112,7 @@ jobs:
         
     - name: Load custom feeds
       run: |
-        [[ -e "${{env.FEEDS_CONF}}" ]] && cp -f ${{env.FEEDS_CONF}} openwrt/feeds.conf.default
+        [[ -e "${FEEDS_CONF}" ]] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
         chmod +x ${{env.DIY_P1_SH}}
         cd openwrt
         $GITHUB_WORKSPACE/${{env.DIY_P1_SH}}
@@ -125,8 +125,8 @@ jobs:
 
     - name: Load custom configuration
       run: |
-        [[ -d files ]] && cp -f files openwrt/files
-        [[ -e "${{ env.CONFIG_FILE }}" ]] && cp -f ${{ env.CONFIG_FILE }} openwrt/.config
+        [[ -d "files" ]] && cp -f files openwrt/files
+        [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
         chmod +x ${{env.DIY_P2_SH}}
         cd openwrt
         $GITHUB_WORKSPACE/${{env.DIY_P2_SH}}
