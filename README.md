@@ -28,12 +28,12 @@ Building OpenWrt with GitHub Actions
 
 ## Credits
 
-- [ImmmortalWrt (ipq4000/ACRH-17, sunxi/nanoPi, rockchip/R2S)](https://immortalwrt.org/)
-- [sdf8057 (ipq6000/ZN M2)](https://github.com/sdf8057/ipq6000)
+- [ImmmortalWrt (ipq4000/ACRH-17, ipq807x/AX6, sunxi/nanoPi, rockchip/R2S, X86_64, Armvirt)](https://immortalwrt.org/)
+- [hanwckf (MT798x/360T7)](https://github.com/hanwckf/immortalwrt-mt798x)
+- [sdf8057 (IPQ6000/ZN M2)](https://github.com/sdf8057/ipq6000)
 - [Robimarko (IPQ807x/AX6)](https://github.com/robimarko/openwrt/)
 - [Bitthief (IPQ807x/AX6 with ECM)](https://github.com/bitthief/openwrt/)
 - [Ansuel (IPQ807x/AX6 with ECM)](https://github.com/Ansuel/openwrt/)
-- [hanwckf (MT798x/360T7)](https://github.com/hanwckf/immortalwrt-mt798x)
 - [Flippy (N1/S905d)](https://github.com/unifreq/openwrt_packit)
 - [ophub (amlogic-s9xxx-openwrt)](https://github.com/ophub/amlogic-s9xxx-openwrt)
 - [OpenWrt](https://github.com/openwrt/openwrt)
