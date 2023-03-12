@@ -135,7 +135,7 @@ jobs:
           echo "DEVICE_NAME=${{ matrix.TARGET }}">> $GITHUB_ENV
         else
           export RELEASE_TAG="v${FILE_DATE}-${{ matrix.TARGET }}"
-          grep -E '^CONFIG_TARGET(.*_generic)?_DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' | xargs > DEVICE_NAME
+          grep -E '^CONFIG_TARGET(.*_generic)?_DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' | xargs ｜ sed -r 's｜ ｜ / ｜g' > DEVICE_NAME
           [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
         fi
         echo "RELEASE_TAG=$RELEASE_TAG" >> $GITHUB_ENV
