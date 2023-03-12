@@ -5,7 +5,7 @@
 # this action compile and upload to Release with different Arch/Target using matrix in Github actions
 #=====================================================================================
 
-name: Build Immortalwrt
+name: Build Immortalwrt Matrix
 
 on:
   repository_dispatch:
@@ -223,7 +223,7 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 3
         keep_minimum_runs: 2
-        delete_workflow_pattern: ${{ matrix.TARGET }}
+        delete_workflow_pattern: Immortalwrt
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@master
