@@ -28,8 +28,8 @@ jobs:
       matrix:
         TARGET: [Armvirt, X86_64, ipq40xx, ipq807x, sunxi, rockchip]
     steps:
-    - name: Check All Targets
-      id: check
+    - name: Configure ENV
+      id: config
       env:
         TARGET: ${{ matrix.TARGET }}
       run: |
@@ -42,27 +42,6 @@ jobs:
         echo "CONFIG_FILE=$CONFIG_FILE" >> $GITHUB_ENV
         echo "DIY_P1_SH=$DIY_P1_SH" >> $GITHUB_ENV
         echo "DIY_P2_SH=$DIY_P2_SH" >> $GITHUB_ENV
-
-        #if [ $TARGET == "Armvirt" ]
-        #then
-        #  export DEVICE="Amlogic/斐讯N1"
-        #elif [ $TARGET == "ipq40xx" ]
-        #then
-        #  export DEVICE="ASUS ACRH-17"
-        #elif [ $TARGET == "ipq807x" ]
-        #then
-        #  export DEVICE="Redmi AX6"
-        #elif [ $TARGET == "sunxi" ]
-        #then
-        #  export DEVICE="nanoPi Neo2, R1S H5, OrangePi Zero Plus"
-        #elif [ $TARGET == "rockchip" ]
-        #then
-        #  export DEVICE="nanoPi R2S/R4S/R5S"
-        #else
-        #  export DEVICE="X86_64"
-        #fi
-        #
-        #echo "DEVICE=$DEVICE" >> $GITHUB_ENV
     
     - name: Checkout
       uses: actions/checkout@v3
@@ -146,7 +125,6 @@ jobs:
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
-        echo "COMPILE_STATUS=success" >> $GITHUB_ENV
         
         export FILE_DATE="$(date +"%y.%-m.%-d")"
         echo "FILE_DATE=$FILE_DATE" >> $GITHUB_ENV
@@ -162,6 +140,8 @@ jobs:
         fi
         echo "RELEASE_TAG=$RELEASE_TAG" >> $GITHUB_ENV
         
+        echo "COMPILE_STATUS=success" >> $GITHUB_ENV
+        
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
@@ -170,7 +150,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: env.COMPILE_STATUS == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: OpenWrt_bin_${{ matrix.TARGET }}_${{ env.FILE_DATE }}
+        name: OpenWrt_bin_${{ matrix.TARGET }}
         path: openwrt/bin
 
     - name: Organize files
