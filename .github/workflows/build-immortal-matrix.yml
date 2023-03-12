@@ -151,14 +151,14 @@ jobs:
         export FILE_DATE="$(date +"%y.%-m.%-d")"
         echo "FILE_DATE=$FILE_DATE" >> $GITHUB_ENV
         
-        grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
-        [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
-        
         if [[ "${{ matrix.TARGET }}" == "Armvirt" || "${{ matrix.TARGET }}" == "X86_64" ]]
         then
           export RELEASE_TAG="Immortalwrt_${{ matrix.TARGET }}"
+          echo "DEVICE_NAME=${{ matrix.TARGET }}">> $GITHUB_ENV
         else
           export RELEASE_TAG="v${FILE_DATE}-${{ matrix.TARGET }}"
+          grep -E '^CONFIG_TARGET(.*_generic)?_DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' | xargs > DEVICE_NAME
+          [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
         fi
         echo "RELEASE_TAG=$RELEASE_TAG" >> $GITHUB_ENV
         
@@ -221,8 +221,8 @@ jobs:
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
-        retain_days: 3
-        keep_minimum_runs: 2
+        retain_days: 2
+        keep_minimum_runs: 1
         delete_workflow_pattern: Immortalwrt
 
     - name: Remove old Releases
