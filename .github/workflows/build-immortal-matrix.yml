@@ -116,6 +116,13 @@ jobs:
         chmod +x ${DIY_P1_SH}
         cd openwrt
         $GITHUB_WORKSPACE/${DIY_P1_SH}
+        
+        echo $PWD
+        ls -lath $PWD
+        
+        echo "====="
+        ls -lath
+        
         echo $(head -n 5 ${CONFIG_FILE})
         
     - name: Update feeds
@@ -127,6 +134,12 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -d ${{ matrix.TARGET }}/files ] && mv ${{ matrix.TARGET }}/files openwrt/files
+        
+        echo $PWD
+        ls -lath $PWD
+        
+        echo "====="
+        ls -lath
         
         echo $(head -n 5 ${CONFIG_FILE})
         
