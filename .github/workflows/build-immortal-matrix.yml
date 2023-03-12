@@ -34,7 +34,7 @@ jobs:
         TARGET: ${{ matrix.TARGET }}
       run: |
         export FEEDS_CONF="$(echo ${TARGET}/feeds.conf.immortal)"
-        export CONFIG_FILE="$(echo ${TARGET}/.conf.immortal)"
+        export CONFIG_FILE="$(echo ${TARGET}/.config.immortal)"
         export DIY_P1_SH="$(echo ${TARGET}/diy-part1.sh)"
         export DIY_P2_SH="$(echo ${TARGET}/diy-part2.sh)"
 
