@@ -112,18 +112,11 @@ jobs:
         
     - name: Load custom feeds
       run: |
-        echo ${FEEDS_CONF}
-        echo "111"
-        echo $FEEDS_CONF
-        echo "222"
-        [ -e "${FEEDS_CONF}" ] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
-        
-        echo $(head -n 5 openwrt/feeds.conf.default)
-        echo $(cat ${{env.DIY_P1_SH}})
-        
-        chmod +x ${{env.DIY_P1_SH}}
+        [ -e ${FEEDS_CONF} ] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
+        chmod +x ${DIY_P1_SH}
         cd openwrt
-        $GITHUB_WORKSPACE/${{env.DIY_P1_SH}}
+        $GITHUB_WORKSPACE/${DIY_P1_SH}
+        echo $(head -n 5 ${CONFIG_FILE})
         
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -133,15 +126,18 @@ jobs:
 
     - name: Load custom configuration
       run: |
-        [ -d files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -d ${{ matrix.TARGET }}/files ] && mv ${{ matrix.TARGET }}/files openwrt/files
+        
+        echo $(head -n 5 ${CONFIG_FILE})
+        
+        [ -e ${CONFIG_FILE} ] && mv ${CONFIG_FILE} openwrt/.config
         
         echo $(head -n 15 openwrt/.config)
-        echo $(cat ${{env.DIY_P2_SH}})
+        echo $(cat ${DIY_P2_SH})
         
-        chmod +x ${{env.DIY_P2_SH}}
+        chmod +x ${DIY_P2_SH}
         cd openwrt
-        $GITHUB_WORKSPACE/${{env.DIY_P2_SH}}
+        $GITHUB_WORKSPACE/${DIY_P2_SH}
         
 #    - name: Download package
 #      id: package
