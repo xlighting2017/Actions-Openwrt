@@ -64,23 +64,23 @@ jobs:
         echo "硬盘详情："
         df -Th
         
-    - name: Initialization environment
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run: |
-        sudo -E swapoff -a
-        sudo -E rm -f /swapfile
-        sudo -E docker image prune -a -f
-        sudo -E snap set system refresh.retain=2
-        sudo -E apt update -y
-        sudo -E apt -y purge azure-cli dotnet* firefox ghc* google* llvm* mono* mysql* openjdk* php* zulu* powershell* msodbc* android*
-        sudo -E apt -y autoremove --purge
-        sudo -E apt clean
-        sudo -E rm -rf /usr/share/dotnet /usr/local/lib/android/sdk /etc/mysql /etc/php /opt/ghc
-        sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
-        sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
+#    - name: Initialization environment
+#      env:
+#        DEBIAN_FRONTEND: noninteractive
+#      run: |
+#        sudo -E swapoff -a
+#        sudo -E rm -f /swapfile
+#        sudo -E docker image prune -a -f
+#        sudo -E snap set system refresh.retain=2
+#        sudo -E apt update -y
+#        sudo -E apt -y purge azure-cli dotnet* firefox ghc* google* llvm* mono* mysql* openjdk* php* zulu* powershell* msodbc* android*
+#        sudo -E apt -y autoremove --purge
+#        sudo -E apt clean
+#        sudo -E rm -rf /usr/share/dotnet /usr/local/lib/android/sdk /etc/mysql /etc/php /opt/ghc
+#        sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
+#        sudo timedatectl set-timezone "$TZ"
+#        sudo mkdir -p /workdir
+#        sudo chown $USER:$GROUPS /workdir
         
     - name: Clone source code
       working-directory: /workdir
@@ -107,7 +107,7 @@ jobs:
         [ -d ${{ matrix.TARGET }}/files ] && mv ${{ matrix.TARGET }}/files openwrt/files
         [ -e ${CONFIG_FILE} ] && mv ${CONFIG_FILE} openwrt/.config
         
-        echo $(grep -E '^CONFIG_TARGET(.*_generic)?_DEVICE.*=y' openwrt/.config | sed -r 's/.*DEVICE_(.*)=y/\1/' | xargs ｜ sed -r 's/ / \/ /g')
+        echo $(grep -E '^CONFIG_TARGET(.*_generic)?_DEVICE.*=y' openwrt/.config | sed -r 's/.*DEVICE_(.*)=y/\1/' | xargs | sed -r 's/ / \/ /g')
         
         
         chmod +x ${DIY_P2_SH}
@@ -139,7 +139,7 @@ jobs:
 #         echo "DEVICE_NAME=${{ matrix.TARGET }}">> $GITHUB_ENV
 #       else
 #         export RELEASE_TAG="v${FILE_DATE}-${{ matrix.TARGET }}"
-#         grep -E '^CONFIG_TARGET(.*_generic)?_DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' | xargs ｜ sed -r 's/ / \/ /g' > DEVICE_NAME
+#         grep -E '^CONFIG_TARGET(.*_generic)?_DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' | xargs | sed -r 's/ / \/ /g' > DEVICE_NAME
 #         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
 #       fi
 #       echo "RELEASE_TAG=$RELEASE_TAG" >> $GITHUB_ENV
