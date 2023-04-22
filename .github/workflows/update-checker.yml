@@ -19,7 +19,7 @@ on:
     - cron: 30 18 * * *
 
 jobs:
-  check:
+  Check:
     runs-on: ubuntu-latest
     
     strategy:
@@ -93,7 +93,10 @@ jobs:
         with:
           token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
           event-type: "Source_Code_Update_${{ env.REPO_USER }}"
-
+          
+  Clean_up:
+    runs-on: ubuntu-latest
+    steps:
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@main
         with:
