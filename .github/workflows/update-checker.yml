@@ -96,6 +96,7 @@ jobs:
           
   Clean_up:
     runs-on: ubuntu-latest
+    needs: Check
     steps:
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@main
