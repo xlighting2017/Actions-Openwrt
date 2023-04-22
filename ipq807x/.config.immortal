@@ -39,9 +39,9 @@ CONFIG_PACKAGE_kmod-nft-offload=y
 CONFIG_PACKAGE_kmod-nft-queue=y
 CONFIG_PACKAGE_kmod-nft-socket=y
 CONFIG_PACKAGE_kmod-nft-tproxy=y
-CONFIG_PACKAGE_iptables-nft=y
-# CONFIG_PACKAGE_ip6tables-nft=y
-# CONFIG_PACKAGE_ipv6-helper=y
+# CONFIG_PACKAGE_iptables-nft is not set
+# CONFIG_PACKAGE_ip6tables-nft is not set
+# CONFIG_PACKAGE_ipv6-helper is not set
 
 # CONFIG_PACKAGE_firewall is not set
 # CONFIG_PACKAGE_iptables-zz-legacy is not set
@@ -86,7 +86,7 @@ CONFIG_PACKAGE_coreutils-nohup=y
 CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_htop=y
 CONFIG_PACKAGE_ip-full=y
-CONFIG_PACKAGE_ipset=y
+# CONFIG_PACKAGE_ipset is not set
 CONFIG_PACKAGE_ipt2socks=y
 
 CONFIG_OPENSSL_ENGINE=y
@@ -164,7 +164,7 @@ CONFIG_PACKAGE_libcares=y
 CONFIG_PACKAGE_libcurl=y
 CONFIG_PACKAGE_libelf=y
 CONFIG_PACKAGE_libev=y
-CONFIG_PACKAGE_libipset=y
+# CONFIG_PACKAGE_libipset is not set
 CONFIG_PACKAGE_libiptext-nft=y
 CONFIG_PACKAGE_libminiupnpc=y
 CONFIG_PACKAGE_libnatpmp=y
