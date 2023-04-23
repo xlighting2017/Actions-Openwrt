@@ -17,8 +17,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  #schedule:
-  #  - cron: '30 18 * * *'
+  schedule:
+    - cron: '30 18 * * 5'
 
 env:
   REPO_URL: https://github.com/bitthief/openwrt
