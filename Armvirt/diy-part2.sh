@@ -34,8 +34,8 @@ sed -i 's/192.168.1.1/192.168.199.253/g' package/base-files/files/bin/config_gen
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # 使用原始最新版本，而不是上游package里面的
-rm -rf ./feeds/luci/applications/luci-app-openclash
-git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+# rm -rf ./feeds/luci/applications/luci-app-openclash
+# git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
 
 
