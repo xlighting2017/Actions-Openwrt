@@ -21,7 +21,7 @@ on:
     - cron: '30 18 * * 5'
 
 env:
-  REPO_URL: https://github.com/bitthief/openwrt
+  REPO_URL: https://github.com/AgustinLorenzo/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: AX6.with.ECM/feeds.conf.ecm
   CONFIG_FILE: AX6.with.ECM/.config.bad
