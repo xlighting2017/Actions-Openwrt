@@ -8,6 +8,12 @@ CONFIG_TARGET_ipq807x_generic_DEVICE_redmi_ax6=y
 CONFIG_DEVEL=y
 CONFIG_IMAGEOPT=y
 
+
+# Using testing/default Kernel
+# CONFIG_LINUX_5_15=y
+CONFIG_TESTING_KERNEL=y
+
+
 # CONFIG_FEED_nss_packages is not set
 
 
