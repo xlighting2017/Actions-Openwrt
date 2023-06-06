@@ -8,7 +8,7 @@ Building OpenWrt with GitHub Actions
 - Rockchip (nanoPi R2S and R4S)
 - ipq6000 (ZN M2 /cmiot AX18, **no WiFi _yet_**)
 - ipq40xx (ASUS ACRH-17)
-- MT798x (Qihoo 360T7)
+- MT798x (Qihoo 360T7, 5.4 kernel with mediatek_hnat, or mainline openwrt without mediatek_hnat)
 - x86_64, using Lean/immortalwrt OpenWrt as upstream
 
 ## Tips
@@ -29,7 +29,7 @@ Building OpenWrt with GitHub Actions
 ## Credits
 
 - [ImmmortalWrt (ipq4000/ACRH-17, ipq807x/AX6, sunxi/nanoPi, rockchip/R2S, X86_64, Armvirt)](https://immortalwrt.org/)
-- [hanwckf (MT798x/360T7)](https://github.com/hanwckf/immortalwrt-mt798x)
+- [hanwckf (MT798x/360T7, 5.4 kernel with mediatek_hnat)](https://github.com/hanwckf/immortalwrt-mt798x)
 - [sdf8057 (IPQ6000/ZN M2)](https://github.com/sdf8057/ipq6000)
 - [Robimarko (IPQ807x/AX6)](https://github.com/robimarko/openwrt/)
 - [Bitthief (IPQ807x/AX6 with ECM)](https://github.com/bitthief/openwrt/)
