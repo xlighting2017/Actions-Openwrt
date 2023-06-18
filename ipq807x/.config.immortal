@@ -1,9 +1,9 @@
 # only minimium IPKs
 
-CONFIG_TARGET_ipq807x=y
-CONFIG_TARGET_ipq807x_generic=y
-CONFIG_TARGET_ipq807x_generic_DEVICE_redmi_ax6=y
-# CONFIG_TARGET_ipq807x_generic_DEVICE_redmi_ax6-stock is not set
+CONFIG_TARGET_qualcommax=y
+CONFIG_TARGET_qualcommax_ipq807x=y
+CONFIG_TARGET_qualcommax_ipq807x_DEVICE_redmi_ax6=y
+# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_redmi_ax6-stock is not set
 
 CONFIG_DEVEL=y
 CONFIG_IMAGEOPT=y
