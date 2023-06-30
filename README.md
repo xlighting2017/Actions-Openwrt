@@ -2,14 +2,20 @@ Building OpenWrt with GitHub Actions
 
 ## Device Supported
 
-- ipq807x (Redmi AX6, with or without NSS offloading, **no WiFi Offloading at the moment**)
-- ipq6000 (ZN M2 /cmiot AX18, **no WiFi _yet_**)
+Official/mainline
+- ipq807x (Redmi AX6, mainline Kernel 6.1.X, **no ANY Offloading**)
 - ipq40xx (ASUS ACRH-17)
-- MT798x (Qihoo 360T7, mainline openwrt 5.15 without WED (need manually enable), or 5.4 kernel with mediatek_hnat + mtwifi )
-- N1 (Amlogic S905d, using custom Kernel + Armsr)
+- MT798x (Qihoo 360T7, mainline openwrt Kernel 5.15 without WED (need manually enable))
 - rockchip (nanoPi R2S and R5C)
 - sunxi (nanoPi Neo2, R1S H5 with ***weak*** WiFi, OrangePi Zero Plus)
 - x86_64, using Immortalwrt/Lean's OpenWrt as upstream
+
+Community Builds
+- ipq807x (Redmi AX6, with NSS offloading, Kernel 5.15.X, nss-drv & nss-ecm & wifi-offloading)
+- ipq6000 (ZN M2 /cmiot AX18, **no WiFi _yet_**)
+- MT798x (Qihoo 360T7, Kernel 5.4 with mediatek_hnat + mtwifi)
+- N1 (Amlogic S905d, using custom/ophub Kernel + Armsr)
+
 
 ## Tips
 
@@ -31,7 +37,7 @@ Building OpenWrt with GitHub Actions
 - [ImmmortalWrt (ipq4000/ACRH-17, ipq807x/AX6, sunxi/nanoPi, rockchip/R2S, X86_64, Armsr)](https://immortalwrt.org/)
 - [Robimarko (IPQ807x/AX6)](https://github.com/robimarko/openwrt/)
 - [Bitthief (IPQ807x/AX6 with ECM)](https://github.com/bitthief/openwrt/)
-- [Ansuel (IPQ807x/AX6 with ECM)](https://github.com/Ansuel/openwrt/)
+- [Ansuel (IPQ807x/AX6 with ECM)](https://github.com/AgustinLorenzo/openwrt)
 - [sdf8057 (IPQ6000/ZN M2)](https://github.com/sdf8057/ipq6000)
 - [hanwckf (MT798x/360T7, 5.4 kernel with mediatek_hnat + mtwifi)](https://github.com/hanwckf/immortalwrt-mt798x)
 - [Flippy (N1/S905d)](https://github.com/unifreq/openwrt_packit)
