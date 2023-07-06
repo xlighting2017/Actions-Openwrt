@@ -169,7 +169,8 @@ jobs:
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-            360T7 固件精简版, 编译时间: ${{ env.FILE_DATE }}
+            360T7 固件精简版, 闭源驱动(非DSA)
+            基于openwrt-21.02, kernel 5.4, 编译时间: ${{ env.FILE_DATE }}
             
             Default IP: 192.168.199.1
             Default username: root
