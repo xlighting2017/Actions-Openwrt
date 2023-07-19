@@ -15,6 +15,7 @@ Community Builds
 - ipq6000 (ZN M2 /cmiot AX18, **no WiFi _yet_**)
 - MT798x (Qihoo 360T7, Kernel 5.4 with mediatek_hnat + mtwifi)
 - N1 (Amlogic S905d, using custom/ophub Kernel + Armsr)
+- QEMU (qemu, using custom/ophub Kernel + Armsr)
 
 
 ## Tips
@@ -40,7 +41,7 @@ Community Builds
 - [Ansuel (IPQ807x/AX6 with ECM)](https://github.com/AgustinLorenzo/openwrt)
 - [sdf8057 (IPQ6000/ZN M2)](https://github.com/sdf8057/ipq6000)
 - [hanwckf (MT798x/360T7, 5.4 kernel with mediatek_hnat + mtwifi)](https://github.com/hanwckf/immortalwrt-mt798x)
-- [Flippy (N1/S905d)](https://github.com/unifreq/openwrt_packit)
+- [Flippy (unifreq/openwrt_packit)](https://github.com/unifreq/openwrt_packit)
 - [ophub (amlogic-s9xxx-openwrt)](https://github.com/ophub/amlogic-s9xxx-openwrt)
 - [OpenWrt](https://github.com/openwrt/openwrt)
 - [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
