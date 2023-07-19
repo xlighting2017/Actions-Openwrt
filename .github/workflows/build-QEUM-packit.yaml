@@ -11,7 +11,7 @@ on:
     types: [Source_Code_Update_ophub, Package_Luci_Update]
   workflow_dispatch:
     inputs:
-      PACKAGE_SOC:
+      openwrt_soc:
         description: "Select SoC"
         required: false
         default: "qemu"
@@ -132,7 +132,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Package Armvirt as QEMU(with input)
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.openwrt_board != '' && (!cancelled())
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.openwrt_soc != '' && (!cancelled())
         uses: ophub/flippy-openwrt-actions@main
         env:
           OPENWRT_ARMVIRT: "https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armsr-armv8-generic-rootfs.tar.gz"
