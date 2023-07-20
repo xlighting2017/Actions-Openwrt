@@ -57,7 +57,7 @@ CONFIG_GRUB_TIMEOUT="0"
 CONFIG_GRUB_EFI_IMAGES=y
 
 ### Other image formats
-CONFIG_QCOW2_IMAGES is not set
+CONFIG_QCOW2_IMAGES=y
 # CONFIG_VHDX_IMAGES is not set
 
 # Firmware Type:
