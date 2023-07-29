@@ -24,7 +24,7 @@ env:
   # REPO_URL: https://github.com/AgustinLorenzo/openwrt
   # REPO_BRANCH: main
   REPO_URL: https://github.com/bitthief/openwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: qualcommax-6.1-nss
   FEEDS_CONF: AX6.with.ECM/feeds.conf.ecm
   CONFIG_FILE: AX6.with.ECM/.config.bad
   DIY_P1_SH: AX6.with.ECM/diy-part1.sh
