@@ -5,7 +5,7 @@ Building OpenWrt with GitHub Actions
 Official/mainline
 - ipq807x (Redmi AX6, mainline Kernel 6.1.X, **no ANY Offloading**)
 - ipq40xx (ASUS ACRH-17)
-- MT798x (Qihoo 360T7, mainline openwrt Kernel 5.15 without WED (need manually enable))
+- MT798x (Qihoo 360T7, mainline openwrt Kernel 5.15 with WED)
 - rockchip (nanoPi R2S and R5C)
 - sunxi (nanoPi Neo2, R1S H5 with ***weak*** WiFi, OrangePi Zero Plus)
 - x86_64, using Immortalwrt/Lean's OpenWrt as upstream
