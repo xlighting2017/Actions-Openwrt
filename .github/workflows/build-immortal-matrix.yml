@@ -64,13 +64,6 @@ jobs:
         echo "硬盘详情："
         df -Th
         
-    # temporary workaround for an error in free disk space action
-    # https://github.com/jlumbroso/free-disk-space/issues/14
-    - name: Update Package List and Remove Dotnet
-      run: |
-        sudo apt-get update
-        sudo apt-get remove -y '^dotnet-.*'
-        
     - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
@@ -212,6 +205,7 @@ jobs:
               
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
+      if: env.ORGANIZE_STATUS == 'success' && (!cancelled())
       with:
         token: ${{ secrets.GH_TOKEN }}
         repository: ${{ github.repository }}
@@ -221,7 +215,7 @@ jobs:
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@master
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      if: env.ORGANIZE_STATUS == 'success' && (!cancelled())
       with:
         repo: ${{ github.repository }}
         keep_latest: 3
