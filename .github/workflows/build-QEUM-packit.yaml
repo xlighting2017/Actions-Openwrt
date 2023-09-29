@@ -102,12 +102,6 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-    # temporary workaround for an error in free disk space action
-    # https://github.com/jlumbroso/free-disk-space/issues/14
-      - name: Update Package List and Remove Dotnet
-        run: |
-          sudo apt-get update
-          sudo apt-get remove -y '^dotnet-.*'
     
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
