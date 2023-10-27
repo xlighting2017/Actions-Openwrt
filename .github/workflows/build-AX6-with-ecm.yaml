@@ -6,7 +6,7 @@
 #   ECM patches from Bitthief
 ################################################
 
-name: Build AX6 with ECM
+name: Build AX6 with ECM - bitthief
 
 on:
   repository_dispatch:
