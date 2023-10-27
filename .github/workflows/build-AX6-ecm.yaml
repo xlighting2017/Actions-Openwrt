@@ -6,7 +6,7 @@
 #   ECM patches from bitthief/dimfishr
 ################################################
 
-name: Build AX6 with ECM - dimfishr
+name: Build AX6 with ECM - community
 
 on:
   #repository_dispatch:
@@ -21,11 +21,11 @@ on:
   #  - cron: '30 18 * * 5'
 
 env:
-  # REPO_URL: https://github.com/AgustinLorenzo/openwrt
-  # REPO_BRANCH: main
-  REPO_URL: https://github.com/dimfishr/openwrt
-  REPO_BRANCH: qualcommax-6.1-nss
-  FEEDS_CONF: AX6.with.ECM/feeds.conf.ecm
+  REPO_URL: https://github.com/AgustinLorenzo/openwrt
+  REPO_BRANCH: main
+  # REPO_URL: https://github.com/dimfishr/openwrt
+  # REPO_BRANCH: qualcommax-6.1-nss
+  FEEDS_CONF: AX6.with.ECM/feeds.conf.comm
   CONFIG_FILE: AX6.with.ECM/.config
   DIY_P1_SH: AX6.with.ECM/diy-part1.sh
   DIY_P2_SH: AX6.with.ECM/diy-part2.sh
