@@ -173,7 +173,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: v${{ env.FILE_DATE }}-ax6.ECM-dimfishr
+        tag: v${{ env.FILE_DATE }}-ax6.ECM-community
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -202,7 +202,7 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 7
         keep_minimum_runs: 2
-        delete_workflow_pattern: "ECM"
+        delete_workflow_pattern: "community"
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@master
@@ -210,7 +210,7 @@ jobs:
       with:
         repo: ${{ github.repository }}
         keep_latest: 3
-        delete_tag_pattern: 'ECM'
+        delete_tag_pattern: 'community'
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
