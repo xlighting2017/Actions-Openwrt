@@ -7,8 +7,8 @@
 name: Build ZN.M2
 
 on:
-  schedule:
-    - cron:  '30 16 * * 5'
+  #schedule:
+  #  - cron:  '30 16 * * 5'
   repository_dispatch:
     types: [Source_Code_Update_sdf8057, Package_Luci_Update]
   workflow_dispatch:
