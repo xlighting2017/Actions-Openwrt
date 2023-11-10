@@ -11,7 +11,7 @@ Official/mainline
 - x86_64, using Immortalwrt/Lean's OpenWrt as upstream
 
 Community Builds
-- ipq807x (Redmi AX6, with NSS offloading, Kernel 5.15.X, nss-drv & nss-ecm & wifi-offloading)
+- ipq807x (Redmi AX6, with NSS offloading, Kernel 6.1.X, nss-drv & nss-ecm & wifi-offloading)
 - ipq6000 (ZN M2 /cmiot AX18, **no WiFi _yet_**)
 - MT798x (Qihoo 360T7, Kernel 5.4 with mediatek_hnat + mtwifi)
 - N1 (Amlogic S905d, using custom/ophub Kernel + Armsr)
