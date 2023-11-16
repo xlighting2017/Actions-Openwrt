@@ -283,7 +283,6 @@ CONFIG_PACKAGE_kmod-mt76-connac=y
 # CONFIG_PACKAGE_kmod-rtl88x2bu is not set
 # CONFIG_PACKAGE_kmod-rtlwifi is not set
 # CONFIG_PACKAGE_kmod-rtlwifi-usb is not set
-# CONFIG_PACKAGE_kmod-rtw88 is not set
 
 
 ## WL Firmware
