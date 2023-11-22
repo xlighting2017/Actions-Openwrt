@@ -25,8 +25,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        #REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, bitthief/openwrt]
-        REPO: [hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, bitthief/openwrt]
+        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, bitthief/openwrt]
+        #REPO: [hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, bitthief/openwrt]
         
     steps:
       - name: Check All Code Bases
