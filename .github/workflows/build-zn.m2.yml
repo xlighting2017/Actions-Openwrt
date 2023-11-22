@@ -7,8 +7,8 @@
 name: Build ZN.M2
 
 on:
-  #schedule:
-  #  - cron:  '30 16 * * 5'
+  schedule:
+    - cron:  '30 16 * * 5'
   repository_dispatch:
     types: [Source_Code_Update_sdf8057, Package_Luci_Update]
   workflow_dispatch:
@@ -20,7 +20,7 @@ on:
 
 env:
   REPO_URL: https://github.com/sdf8057/ipq6000
-  REPO_BRANCH: main
+  REPO_BRANCH: master
   FEEDS_CONF: ipq6000/feeds.conf.default
   CONFIG_FILE: ipq6000/zn.m2.config
   DIY_P1_SH: ipq6000/diy-part1.sh
