@@ -40,7 +40,7 @@ jobs:
           export REPO_NAME="$(echo $REPO | awk -F '/' '{print $2}')"
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
           
-          export SDF8057_BRANCH="main"
+          export SDF8057_BRANCH="master"
           export HANWCKF_BRANCH="openwrt-21.02"
           export IMMORTALWRT_BRANCH="master"
           export OPHUB_BRANCH="main"
