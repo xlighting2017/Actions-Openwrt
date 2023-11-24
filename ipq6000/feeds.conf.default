@@ -1,6 +1,8 @@
 # use local feeds.conf.default
-src-git packages https://github.com/sdf8057/packages.git;2023
-src-git luci https://github.com/sdf8057/luci.git;2023
+# src-git packages https://github.com/sdf8057/packages.git;2023
+# src-git luci https://github.com/sdf8057/luci.git;2023
 
-src-git package https://github.com/immortalwrt/packages.git
+src-git packages https://github.com/immortalwrt/packages.git
+src-git luci https://github.com/immortalwrt/luci.git
+
 # src-git-full luci https://github.com/immortalwrt/luci.git
