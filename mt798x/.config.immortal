@@ -154,6 +154,8 @@ CONFIG_MTK_WSC_V2_SUPPORT=y
 # CONFIG_MTK_SNIFFER_RADIOTAP_SUPPORT is not set
 # CONFIG_WARP_ATC_SUPPORT is not set
 
+# remove procd-ujail
+# CONFIG_PACKAGE_procd-ujail is not set
 
 # CONFIG_PACKAGE_luci-app-cpufreq is not set
 
