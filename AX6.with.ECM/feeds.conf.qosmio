@@ -1,4 +1,4 @@
 src-git luci https://github.com/immortalwrt/luci.git
 src-git packages https://github.com/immortalwrt/packages.git
 src-git routing https://github.com/immortalwrt/routing.git
-src-git nss_packages https://github.com/qosmio/nss-packages.git
+src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.4-K6.1
