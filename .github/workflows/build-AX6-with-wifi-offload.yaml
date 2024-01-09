@@ -10,16 +10,16 @@
 name: Build AX6 with ECM - qosmio
 
 on:
-  #repository_dispatch:
-  #  types: [Source_Code_Update_bitthief, Package_Luci_Update]  
+  repository_dispatch:
+    types: [Source_Code_Update_qosmio, Package_Luci_Update]  
   workflow_dispatch:
     inputs:
       ssh:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  #schedule:
-  #  - cron: '30 18 * * 5'
+  schedule:
+    - cron: '30 16 * * 5'
 
 env:
   REPO_URL: https://github.com/qosmio/openwrt-ipq
