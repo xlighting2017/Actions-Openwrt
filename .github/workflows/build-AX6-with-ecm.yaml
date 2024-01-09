@@ -4,13 +4,14 @@
 #   imoutowrt/immortalwrt from CNSZTL
 #   IPQ807x patchs from Robimarko & Ansuels
 #   ECM patches from Bitthief
+#   repo from AgustinLorenzo
 ################################################
 
 name: Build AX6 with ECM - bitthief
 
 on:
   repository_dispatch:
-    types: [Source_Code_Update_bitthief, Package_Luci_Update]  
+    types: [Source_Code_Update_lorenzo, Package_Luci_Update]  
   workflow_dispatch:
     inputs:
       ssh:
