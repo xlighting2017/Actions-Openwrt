@@ -3,22 +3,23 @@
 # Uses:
 #   imoutowrt/immortalwrt from CNSZTL
 #   IPQ807x patchs from Robimarko & Ansuels
-#   ECM patches from bitthief/dimfishr
+#   ECM patches from bitthief
+#   repo from dimfishr
 ################################################
 
 name: Build AX6 with ECM - community
 
 on:
-  #repository_dispatch:
-  #  types: [Source_Code_Update_bitthief, Package_Luci_Update]  
+  repository_dispatch:
+    types: [Source_Code_Update_dimfishr, Package_Luci_Update]  
   workflow_dispatch:
     inputs:
       ssh:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  #schedule:
-  #  - cron: '30 18 * * 5'
+  schedule:
+    - cron: '30 16 * * 5'
 
 env:
   # REPO_URL: https://github.com/AgustinLorenzo/openwrt
