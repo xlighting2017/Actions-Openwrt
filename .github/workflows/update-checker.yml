@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, bitthief/openwrt]
+        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, dimfishr/openwrt, AgustinLorenzo/openwrt, qosmio/openwrt-ipq]
         #REPO: [hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, bitthief/openwrt]
         
     steps:
@@ -45,6 +45,9 @@ jobs:
           export IMMORTALWRT_BRANCH="master"
           export OPHUB_BRANCH="main"
           export BITTHIEF_BRANCH="master"
+          export DIMFISHR_BRANCH="qualcommax-6.1-nss"
+          export LORENZO_BRANCH="qualcommax-6.1-nss"
+          export QOSMIO_BRANCH="qualcommax-6.1-nss"
           
           if [ $REPO_USER == sdf8057 ]
           then
@@ -55,9 +58,15 @@ jobs:
           elif [ $REPO_USER == ophub ]
           then
             export BRANCH=$OPHUB_BRANCH
-          elif [ $REPO_USER == bitthief ]
+          elif [ $REPO_USER == dimfishr ]
           then
-            export BRANCH=$BITTHIEF_BRANCH
+            export BRANCH=$DIMFISHR_BRANCH
+          elif [ $REPO_USER == AgustinLorenzo ]
+          then
+            export BRANCH=$LORENZO_BRANCH
+          elif [ $REPO_USER == qosmio ]
+          then
+            export BRANCH=$QOSMIO_BRANCH
           else
             export BRANCH=$IMMORTALWRT_BRANCH
           fi
