@@ -46,8 +46,8 @@ jobs:
           export OPHUB_BRANCH="main"
           export BITTHIEF_BRANCH="master"
           export DIMFISHR_BRANCH="qualcommax-6.1-nss"
-          export LORENZO_BRANCH="qualcommax-6.1-nss"
-          export QOSMIO_BRANCH="qualcommax-6.1-nss"
+          export LORENZO_BRANCH="main"
+          export QOSMIO_BRANCH="qualcommax-6.1-nss-wifi"
           
           if [ $REPO_USER == sdf8057 ]
           then
