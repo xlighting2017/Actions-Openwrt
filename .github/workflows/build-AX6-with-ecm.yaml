@@ -11,7 +11,7 @@ name: Build AX6 with ECM - bitthief
 
 on:
   repository_dispatch:
-    types: [Source_Code_Update_lorenzo, Package_Luci_Update]  
+    types: [Source_Code_Update_AgustinLorenzo, Package_Luci_Update]  
   workflow_dispatch:
     inputs:
       ssh:
