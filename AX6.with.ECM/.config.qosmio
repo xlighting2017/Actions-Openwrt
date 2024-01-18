@@ -4,10 +4,10 @@ CONFIG_DEVEL=y
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq807x=y
 CONFIG_TARGET_qualcommax_ipq807x_DEVICE_redmi_ax6=y
-CONFIG_TARGET_qualcommax_ipq807x_DEVICE_xiaomi_ax3600=y
+# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_xiaomi_ax3600=y
 
 CONFIG_TARGET_PACKAGES_qualcommax_ipq807x_DEVICE_redmi_ax6=""
-CONFIG_TARGET_PACKAGES_qualcommax_ipq807x_DEVICE_xiaomi_ax3600=""
+# CONFIG_TARGET_PACKAGES_qualcommax_ipq807x_DEVICE_xiaomi_ax3600=""
 
 CONFIG_TARGET_INITRAMFS_COMPRESSION_ZSTD=y
 CONFIG_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53+crypto+crc"
