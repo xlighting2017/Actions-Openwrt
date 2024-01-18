@@ -45,7 +45,7 @@ Community Builds
 - [Bitthief (IPQ807x/AX6 with ECM)](https://github.com/bitthief/openwrt/)
 - [AgustinLorenzo (IPQ807x/AX6 with ECM)](https://github.com/AgustinLorenzo/openwrt)
 - [dimfishr (IPQ807x/AX6 with ECM)](https://github.com/dimfishr/openwrt/tree/qualcommax-6.1-nss-wifi)
-- [Qosmio (IPQ807x/AX6 with wifi-offloading)](https://github.com/qosmio/openwrt-ipq/)
+- [Qosmio (IPQ807x/AX6 with wifi-offloading)](https://github.com/qosmio/openwrt-ipq/tree/qualcommax-6.1-nss-wifi)
 - [sdf8057 (IPQ6000/ZN M2)](https://github.com/sdf8057/ipq6000)
 - [hanwckf (MT798x/360T7, 5.4 kernel with mediatek_hnat + mtwifi)](https://github.com/hanwckf/immortalwrt-mt798x)
 - [Flippy (unifreq/openwrt_packit)](https://github.com/unifreq/openwrt_packit)
