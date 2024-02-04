@@ -44,7 +44,7 @@ jobs:
         echo "DIY_P2_SH=$DIY_P2_SH" >> $GITHUB_ENV
     
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@main
       
     - name: Check server configuration
       run: |
