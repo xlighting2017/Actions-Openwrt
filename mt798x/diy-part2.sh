@@ -37,6 +37,12 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65536' package
 # 使用原始最新版本，而不是上游package里面的
 rm -rf ./feeds/luci/applications/luci-app-openclash
 git clone --depth=1 https://github.com/xlighting2017/OpenClash.git package/luci-app-openclash
+# rm -rf ./feeds/luci/applications/luci-app-openclash
+# git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+# rm -rf ./feeds/packages/smartdns
+# git clone https://github.com/pymumu/smartdns.git package/smartdns
+# rm -rf ./feeds/luci/applications/luci-app-smartdns
+# git clone --depth=1 https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 
 
 # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
