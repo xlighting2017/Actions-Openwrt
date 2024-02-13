@@ -38,21 +38,24 @@ sed -i 's/192.168.1.1/192.168.199.1/g' package/base-files/files/bin/config_gener
 rm -rf ./feeds/luci/applications/luci-app-openclash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
-rm -rf ./feeds/packages/smartdns
+rm -rf ./feeds/packages/net/smartdns
 git clone --filter=blob:none --sparse https://github.com/immortalwrt/packages
 cd packages
 git sparse-checkout add net/smartdns
-cp -Rf net/smartdns ../feeds/packages/smartdns
+cp -Rf net/smartdns ../feeds/packages/net/smartdns
 cd ..
 
 rm -rf ./feeds/luci/applications/luci-app-smartdns
-git clone --filter=blob:none --sparse https://github.com/immortalwrt/luci
-cd luci
-git sparse-checkout add applications/luci-app-smartdns
-cp -Rf applications/luci-app-smartdns ../feeds/luci/applications/luci-app-smartdns
-cd ..
+git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns.git ./feeds/luci/applications/luci-app-smartdns
 
-./scripts/feeds install -a -f
+# rm -rf ./feeds/luci/applications/luci-app-smartdns
+# git clone --filter=blob:none --sparse https://github.com/immortalwrt/luci
+# cd luci
+# git sparse-checkout add applications/luci-app-smartdns
+# cp -Rf applications/luci-app-smartdns ../feeds/luci/applications/luci-app-smartdns
+# cd ..
+
+# ./scripts/feeds install -a -f
 
 # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 # git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
