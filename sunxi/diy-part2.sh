@@ -46,8 +46,9 @@ echo 'net.netfilter.nf_conntrack_max=165535' >> package/base-files/files/etc/sys
 
 
 # 使用原始最新版本，而不是上游package里面的
-# rm -rf ./feeds/luci/applications/luci-app-openclash
-# git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+rm -rf ./feeds/luci/applications/luci-app-openclash
+git clone --depth=1 -b dev https://github.com/xlighting2017/OpenClash.git package/luci-app-openclash
+
 # rm -rf ./feeds/packages/smartdns
 # git clone https://github.com/pymumu/smartdns.git package/smartdns
 # rm -rf ./feeds/luci/applications/luci-app-smartdns
