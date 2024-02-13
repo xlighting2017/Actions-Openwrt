@@ -42,16 +42,17 @@ rm -rf ./feeds/packages/smartdns
 git clone --filter=blob:none --sparse https://github.com/immortalwrt/packages
 cd packages
 git sparse-checkout add net/smartdns
-cp -Rf net/smartdns ../package/smartdns
+cp -Rf net/smartdns ../feeds/packages/smartdns
 cd ..
 
 rm -rf ./feeds/luci/applications/luci-app-smartdns
 git clone --filter=blob:none --sparse https://github.com/immortalwrt/luci
 cd luci
 git sparse-checkout add applications/luci-app-smartdns
-cp -Rf applications/luci-app-smartdns ../package/luci-app-smartdns
+cp -Rf applications/luci-app-smartdns ../feeds/luci/applications/luci-app-smartdns
 cd ..
 
+./scripts/feeds install -a -f
 
 # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 # git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
