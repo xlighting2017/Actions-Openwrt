@@ -7,7 +7,7 @@
 #   repo from dimfishr
 ################################################
 
-name: Build AX6 with ECM - community
+name: Build AX6 with ECM - dimfishr
 
 on:
   repository_dispatch:
@@ -18,8 +18,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: '30 16 * * 5'
+#  schedule:
+#    - cron: '30 16 * * 5'
 
 env:
   # REPO_URL: https://github.com/AgustinLorenzo/openwrt
