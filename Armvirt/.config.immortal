@@ -204,30 +204,6 @@ CONFIG_PACKAGE_ddns-scripts_no-ip_com=y
 CONFIG_PACKAGE_ddns-scripts_nsupdate=y
 CONFIG_PACKAGE_ddns-scripts_route53-v1=y
 
-## GFW
-
-CONFIG_PACKAGE_brook=n
-CONFIG_PACKAGE_frpc=y
-CONFIG_PACKAGE_haproxy=n
-CONFIG_PACKAGE_hysteria=n
-CONFIG_PACKAGE_kcptun-client=n
-CONFIG_PACKAGE_redsocks2=n
-CONFIG_PACKAGE_shadowsocks-rust-sslocal=y
-CONFIG_PACKAGE_shadowsocks-rust-ssserver=y
-CONFIG_PACKAGE_simple-obfs-client=y
-CONFIG_PACKAGE_trojan=n
-CONFIG_PACKAGE_trojan-go=y
-CONFIG_PACKAGE_trojan-plus=n
-CONFIG_PACKAGE_v2ray-core=n
-CONFIG_PACKAGE_v2ray-plugin=n
-CONFIG_PACKAGE_xray-core=y
-
-CONFIG_PACKAGE_smartdns=y
-CONFIG_PACKAGE_ttyd=y
-
-CONFIG_PACKAGE_wireguard-tools=y
-CONFIG_PACKAGE_zerotier=y
-
 # National language packs, luci-i18n-base:
 # CONFIG_PACKAGE_luci-i18n-base-en=y
 CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
