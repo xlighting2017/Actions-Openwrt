@@ -38,8 +38,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65536' package
 rm -rf ./feeds/luci/applications/luci-app-openclash
 git clone --depth=1 -b patch-1 https://github.com/xlighting2017/OpenClash.git package/luci-app-openclash
 
-git clone --depth=1 -b v5 https://github.com/sbwml/luci-app-mosdns.git package/luci-app-mosdns
-./scripts/feeds install -a -f
+git clone -b v5 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
 
 # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 # git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
