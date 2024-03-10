@@ -7,7 +7,7 @@ CONFIG_TARGET_DEVICE_PACKAGES_sunxi_cortexa53_DEVICE_friendlyarm_nanopi-neo2="-l
 CONFIG_TARGET_DEVICE_sunxi_cortexa53_DEVICE_friendlyarm_nanopi-r1s-h5=y
 CONFIG_TARGET_DEVICE_PACKAGES_sunxi_cortexa53_DEVICE_friendlyarm_nanopi-r1s-h5="luci-app-cpufreq luci-i18n-cpufreq-zh-cn"
 CONFIG_TARGET_DEVICE_sunxi_cortexa53_DEVICE_xunlong_orangepi-zero-plus=y
-CONFIG_TARGET_DEVICE_PACKAGES_sunxi_cortexa53_DEVICE_xunlong_orangepi-zero-plus="luci-app-cpufreq luci-i18n-cpufreq-zh-cn"
+CONFIG_TARGET_DEVICE_PACKAGES_sunxi_cortexa53_DEVICE_xunlong_orangepi-zero-plus="-luci-app-cpufreq -luci-i18n-cpufreq-zh-cn"
 
 # Build Options
 CONFIG_DEVEL=y
