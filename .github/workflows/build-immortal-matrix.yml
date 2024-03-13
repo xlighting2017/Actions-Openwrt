@@ -193,14 +193,13 @@ jobs:
             编译时间: ${{ env.FILE_DATE }}
                         
             插件列表： 
+              ├ cpufreq
               ├ ddns
-              ├ filetransfer
-              ├ frpc
-              ├ passwall              
+              ├ frpc   
+              ├ mosdns     
               ├ OpenClash
-              ├ SmartDNS
+              ├ passwall
               ├ ttyd
-              ├ Zerotier
               └ KMS
               
     - name: Delete workflow runs
