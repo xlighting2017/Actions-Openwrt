@@ -11,6 +11,21 @@ on:
   repository_dispatch:
     types: [Source_Code_Update_immortalwrt, Package_Luci_Update]
   workflow_dispatch:
+    inputs:
+      target:
+        description: "Select target(s) to build"
+        required: false
+        default: '{"Armvirt", "X86_64", "ipq40xx", "ipq807x", "mt798x", "rockchip", "sunxi"}'
+        type: choice
+        options:
+          - '{"Armvirt", "X86_64", "ipq40xx", "ipq807x", "mt798x", "rockchip", "sunxi"}'
+          - '{"Armvirt"}'
+          - '{"X86_64"}'
+          - '{"ipq40xx"}'
+          - '{"ipq807x"}'
+          - '{"mt798x"}'
+          - '{"rockchip"}'
+          - '{"sunxi"}'
         
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -26,7 +41,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        TARGET: [Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi]
+        TARGET: ${{fromJSON(github.event.inputs.target)}}
     steps:
     - name: Configure ENV
       id: config
