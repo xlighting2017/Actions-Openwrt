@@ -15,17 +15,17 @@ on:
       target:
         description: "Select target(s) to build"
         required: false
-        default: '{"target" : "Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi"}'
+        default: 'all'
         type: choice
         options:
-          - '{"target" : "Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi"}'
-          - '{"target" : "Armvirt"}'
-          - '{"target" : "X86_64"}'
-          - '{"target" : "ipq40xx"}'
-          - '{"target" : "ipq807x"}'
-          - '{\"target\" : [\"mt798x\"]}'
-          - '{"target" : "rockchip"}'
-          - '{"target" : "sunxi"}'
+          - 'all'
+          - 'Armvirt'
+          - 'X86_64'
+          - 'ipq40xx'
+          - 'ipq807x'
+          - 'mt798x'
+          - 'rockchip'
+          - 'sunxi'
         
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -36,12 +36,41 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
+  generate-matrix:
+    name: Generate matrix from inputs for build
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Set matrix for build
+        id: set-matrix
+        run: |
+          JSON="{\"include\":["
+          
+          if [${{ github.event.inputs.target }} == "all"]; then
+            JSONline="{\"target\": \"Armvirt\"}, {\"target\": \"X86_64\"}, {\"target\": \"ipq40xx\"}, {\"target\": \"ipq807x\"}, {\"target\": \"mt798x\"}, {\"target\": \"rockchip\"}, {\"target\": \"sunxi\"},"
+          else
+            JSONline="{\"target\": \"${{ github.event.inputs.target }}\"},"
+          fi
+          if [[ "$JSON" != *"$JSONline"* ]]; then
+              JSON="$JSON$JSONline"
+          fi
+          JSON="$JSON$JSONline"
+          
+          # Remove last "," and add closing brackets
+          JSON="$JSON]}"
+          echo $JSON
+
+          # Set output
+          echo "matrix=$( echo "$JSON" )" >> $GITHUB_OUTPUT
   build:
+    name: Build "${{ matrix.target }}"
+    needs: generate-matrix
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        TARGET: ${{fromJSON("{\"include\":[{\"target\":\"mt798x\"}]}")}}
+        TARGET: ${{fromJson(needs.generate-matrix.outputs.matrix)}}
     steps:
     - name: Configure ENV
       id: config
