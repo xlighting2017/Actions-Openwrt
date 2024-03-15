@@ -23,7 +23,7 @@ on:
           - '{"target" : "X86_64"}'
           - '{"target" : "ipq40xx"}'
           - '{"target" : "ipq807x"}'
-          - '{"target" : "[mt798x]"}'
+          - '{"target" : [mt798x]}'
           - '{"target" : "rockchip"}'
           - '{"target" : "sunxi"}'
         
