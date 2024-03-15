@@ -15,17 +15,17 @@ on:
       target:
         description: "Select target(s) to build"
         required: false
-        default: '{"Armvirt", "X86_64", "ipq40xx", "ipq807x", "mt798x", "rockchip", "sunxi"}'
+        default: '{"target" : "Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi"}'
         type: choice
         options:
-          - '{"Armvirt", "X86_64", "ipq40xx", "ipq807x", "mt798x", "rockchip", "sunxi"}'
-          - '{"Armvirt"}'
-          - '{"X86_64"}'
-          - '{"ipq40xx"}'
-          - '{"ipq807x"}'
-          - '{"mt798x"}'
-          - '{"rockchip"}'
-          - '{"sunxi"}'
+          - '{"target" : "Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi"}'
+          - '{"target" : "Armvirt"}'
+          - '{"target" : "X86_64"}'
+          - '{"target" : "ipq40xx"}'
+          - '{"target" : "ipq807x"}'
+          - '{"target" : "mt798x"}'
+          - '{"target" : "rockchip"}'
+          - '{"target" : "sunxi"}'
         
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -41,7 +41,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        TARGET: ${{fromJSON(github.event.inputs.target)}}
+        TARGET: ${{fromJSON(github.event.inputs.target).target}}
     steps:
     - name: Configure ENV
       id: config
