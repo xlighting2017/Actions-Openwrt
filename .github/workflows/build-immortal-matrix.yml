@@ -45,7 +45,7 @@ jobs:
       - name: Set matrix for build
         id: set-matrix
         run: |
-          JSON="{\"include\":["
+          JSON="{["
           
           if [${{ github.event.inputs.target }} == "all"]; then
             JSONline="{\"target\": \"Armvirt\"}, {\"target\": \"X86_64\"}, {\"target\": \"ipq40xx\"}, {\"target\": \"ipq807x\"}, {\"target\": \"mt798x\"}, {\"target\": \"rockchip\"}, {\"target\": \"sunxi\"}"
