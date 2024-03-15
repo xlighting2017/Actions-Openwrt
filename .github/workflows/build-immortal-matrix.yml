@@ -48,9 +48,9 @@ jobs:
           JSON="{\"TARGET\": ["
           
           if [ ${{ github.event.inputs.target }} == "all" ]; then
-            JSONline="Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi"
+            JSONline="\"Armvirt\", \"X86_64\", \"ipq40xx\", \"ipq807x\", \"mt798x\", \"rockchip\", \"sunxi\""
           else
-            JSONline="${{ github.event.inputs.target }}"
+            JSONline="\"${{ github.event.inputs.target }}\""
           fi
 
           JSON="$JSON$JSONline"
