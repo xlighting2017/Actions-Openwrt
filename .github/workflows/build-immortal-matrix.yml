@@ -48,13 +48,11 @@ jobs:
           JSON="{\"include\":["
           
           if [${{ github.event.inputs.target }} == "all"]; then
-            JSONline="{\"target\": \"Armvirt\"}, {\"target\": \"X86_64\"}, {\"target\": \"ipq40xx\"}, {\"target\": \"ipq807x\"}, {\"target\": \"mt798x\"}, {\"target\": \"rockchip\"}, {\"target\": \"sunxi\"},"
+            JSONline="{\"target\": \"Armvirt\"}, {\"target\": \"X86_64\"}, {\"target\": \"ipq40xx\"}, {\"target\": \"ipq807x\"}, {\"target\": \"mt798x\"}, {\"target\": \"rockchip\"}, {\"target\": \"sunxi\"}"
           else
-            JSONline="{\"target\": \"${{ github.event.inputs.target }}\"},"
+            JSONline="{\"target\": \"${{ github.event.inputs.target }}\"}"
           fi
-          if [[ "$JSON" != *"$JSONline"* ]]; then
-              JSON="$JSON$JSONline"
-          fi
+
           JSON="$JSON$JSONline"
           
           # Remove last "," and add closing brackets
