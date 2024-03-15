@@ -15,17 +15,17 @@ on:
       target:
         description: "Select target(s) to build"
         required: false
-        default: 'all'
+        default: "all"
         type: choice
         options:
-          - 'all'
-          - 'Armvirt'
-          - 'X86_64'
-          - 'ipq40xx'
-          - 'ipq807x'
-          - 'mt798x'
-          - 'rockchip'
-          - 'sunxi'
+          - all
+          - Armvirt
+          - X86_64
+          - ipq40xx
+          - ipq807x
+          - mt798x
+          - rockchip
+          - sunxi
         
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -45,12 +45,12 @@ jobs:
       - name: Set matrix for build
         id: set-matrix
         run: |
-          JSON="{["
+          JSON="{\"include\": ["
           
           if [${{ github.event.inputs.target }} == "all"]; then
-            JSONline="{\"target\": \"Armvirt\"}, {\"target\": \"X86_64\"}, {\"target\": \"ipq40xx\"}, {\"target\": \"ipq807x\"}, {\"target\": \"mt798x\"}, {\"target\": \"rockchip\"}, {\"target\": \"sunxi\"}"
+            JSONline="Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi"
           else
-            JSONline="{\"target\": \"${{ github.event.inputs.target }}\"}"
+            JSONline="${{ github.event.inputs.target }}"
           fi
 
           JSON="$JSON$JSONline"
