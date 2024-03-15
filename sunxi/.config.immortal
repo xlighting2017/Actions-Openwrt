@@ -144,6 +144,11 @@ CONFIG_PACKAGE_wget-ssl=y
 CONFIG_PACKAGE_whereis=y
 CONFIG_PACKAGE_zlib=y
 
+CONFIG_PACKAGE_tailscale=y
+CONFIG_PACKAGE_wireguard-tools=y
+CONFIG_PACKAGE_kmod-wireguard=y
+CONFIG_PACKAGE_luci-proto-wireguard=y
+
 ## Printer
 # CONFIG_PACKAGE_p910nd=y
 
@@ -228,8 +233,8 @@ CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
 CONFIG_PACKAGE_luci-app-vlmcsd=y
 CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
 
-CONFIG_PACKAGE_luci-app-zerotier=y
-CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
+# CONFIG_PACKAGE_luci-app-zerotier=y
+# CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 
 # Luci - Theme
 CONFIG_PACKAGE_luci-theme-argon=y
