@@ -23,7 +23,7 @@ on:
           - '{"target" : "X86_64"}'
           - '{"target" : "ipq40xx"}'
           - '{"target" : "ipq807x"}'
-          - '{"target" : [mt798x]}'
+          - '{\"target\" : [\"mt798x\"]}'
           - '{"target" : "rockchip"}'
           - '{"target" : "sunxi"}'
         
@@ -41,7 +41,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        TARGET: ${{fromJSON(github.event.inputs.target).target}}
+        TARGET: ${{fromJSON("{\"include\":[{\"target\":\"mt798x\"}]}")}}
     steps:
     - name: Configure ENV
       id: config
