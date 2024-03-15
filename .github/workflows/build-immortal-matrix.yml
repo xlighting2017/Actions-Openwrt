@@ -47,10 +47,10 @@ jobs:
         run: |
           JSON="{\"include\": ["
           
-          if [${{ github.event.inputs.target }} == "all"]; then
-            JSONline="Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi"
+          if [ ${{ github.event.inputs.target }} == "all" ]; then
+            JSONline="{\"TARGET\": \"Armvirt\", \"TARGET\": \"X86_64\", \"TARGET\": \"ipq40xx\", \"TARGET\": \"ipq807x\", \"TARGET\": \"mt798x\", \"TARGET\": \"rockchip\", \"TARGET\": \"sunxi\""
           else
-            JSONline="${{ github.event.inputs.target }}"
+            JSONline="{\"TARGET\": ${{ github.event.inputs.target }}}"
           fi
 
           JSON="$JSON$JSONline"
@@ -67,8 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        TARGET: ${{fromJson(needs.generate-matrix.outputs.matrix)}}
+      matrix: ${{fromJson(needs.generate-matrix.outputs.matrix)}}
     steps:
     - name: Configure ENV
       id: config
