@@ -45,22 +45,15 @@ jobs:
       - name: Set matrix for build
         id: set-matrix
         run: |
-          JSON='{\"TARGET\": ['
-
-          echo $JSON
-          echo ${{ github.event_name }}
-          echo ${{ github.event.inputs.target }}
+          JSON="{\"TARGET\": ["
           
-          if [ ${{ github.event_name }} == 'repository_dispatch' ] || [ ${{ github.event_name }} == 'workflow_dispatch' && ${{ github.event.inputs.target }} == "all" ]; then
-            JSONline='\"Armvirt\", \"X86_64\", \"ipq40xx\", \"ipq807x\", \"mt798x\", \"rockchip\", \"sunxi\"'
+          if { [ ${{ github.event_name }} == "workflow_dispatch" ] && [ ${{ github.event.inputs.target }} == "all" ] } || [ ${{ github.event_name }} == "repository_dispatch" ]; then
+            JSONline="\"Armvirt\", \"X86_64\", \"ipq40xx\", \"ipq807x\", \"mt798x\", \"rockchip\", \"sunxi\""
           else
-            JSONline='\"${{ github.event.inputs.target }}\"'
+            JSONline="\"${{ github.event.inputs.target }}\""
           fi
 
-          JSON="$JSON$JSONline"
-          
-          # Remove last "," and add closing brackets
-          JSON='$JSON]}'
+          JSON="${JSON}${JSONline}]}"
           
           echo $JSON
 
