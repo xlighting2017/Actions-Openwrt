@@ -47,7 +47,7 @@ jobs:
         run: |
           JSON="{\"TARGET\": ["
           
-          if [ ${{ github.event.inputs.target }} == "all" ]; then
+          if [ ${{ github.event_name }} == 'repository_dispatch' ] || [ ${{ github.event_name }} == 'workflow_dispatch' && ${{ github.event.inputs.target }} == "all" ]; then
             JSONline="\"Armvirt\", \"X86_64\", \"ipq40xx\", \"ipq807x\", \"mt798x\", \"rockchip\", \"sunxi\""
           else
             JSONline="\"${{ github.event.inputs.target }}\""
