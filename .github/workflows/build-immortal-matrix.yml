@@ -37,7 +37,7 @@ env:
 
 jobs:
   generate-matrix:
-    name: Generate matrix from inputs for build
+    name: Generate matrix for build
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
@@ -51,9 +51,9 @@ jobs:
           { [ ${{ github.event_name }} == "workflow_dispatch" ] && [ ${{ github.event.inputs.target }} == "all" ]; } || 
           [ ${{ github.event_name }} == "repository_dispatch" ]
           then
-            JSONline="Armvirt, X86_64, ipq40xx, ipq807x, mt798x, rockchip, sunxi"
+            JSONline="\"Armvirt\", \"X86_64\", \"ipq40xx\", \"ipq807x\", \"mt798x\", \"rockchip\", \"sunxi\""
           else
-            JSONline="${{ github.event.inputs.target }}"
+            JSONline="\"${{ github.event.inputs.target }}\""
           fi
 
           JSON="${JSON}${JSONline}]}"
@@ -63,7 +63,7 @@ jobs:
           # Set output
           echo "matrix=$( echo "$JSON" )" >> $GITHUB_OUTPUT
   build:
-    name: Build "${{ matrix.target }}"
+    name: Build target - ${{ matrix.target }}
     needs: generate-matrix
     runs-on: ubuntu-latest
     strategy:
