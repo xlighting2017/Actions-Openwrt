@@ -182,11 +182,11 @@ jobs:
             Default username: root
             Default password: password
             
-            插件列表： 
+            插件列表：
               ├ ddns
-              ├ filetransfer
+              ├ frpc
+              ├ mosdns
               ├ OpenClash
-              ├ SmartDNS
               ├ ttyd
               └ KMS
               
