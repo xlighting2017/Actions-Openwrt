@@ -38,15 +38,17 @@ sed -i 's/192.168.1.1/192.168.199.1/g' package/base-files/files/bin/config_gener
 rm -rf ./feeds/luci/applications/luci-app-openclash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git ./feeds/luci/applications/luci-app-openclash
 
-rm -rf ./feeds/packages/net/smartdns
-git clone --filter=blob:none --sparse https://github.com/immortalwrt/packages
-cd packages
-git sparse-checkout add net/smartdns
-cp -Rf net/smartdns ../feeds/packages/net/smartdns
-cd ..
+git clone -b v5 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
 
-rm -rf ./feeds/luci/applications/luci-app-smartdns
-git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns.git ./feeds/luci/applications/luci-app-smartdns
+# rm -rf ./feeds/packages/net/smartdns
+# git clone --filter=blob:none --sparse https://github.com/immortalwrt/packages
+# cd packages
+# git sparse-checkout add net/smartdns
+# cp -Rf net/smartdns ../feeds/packages/net/smartdns
+# cd ..
+
+# rm -rf ./feeds/luci/applications/luci-app-smartdns
+# git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns.git ./feeds/luci/applications/luci-app-smartdns
 
 # rm -rf ./feeds/luci/applications/luci-app-smartdns
 # git clone --filter=blob:none --sparse https://github.com/immortalwrt/luci
