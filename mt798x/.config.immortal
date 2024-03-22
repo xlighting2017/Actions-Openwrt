@@ -126,6 +126,9 @@ CONFIG_PACKAGE_luci-proto-wireguard=y
 # CONFIG_PACKAGE_fibocom-qmi-wwan=m
 CONFIG_PACKAGE_luci-proto-quectel=m
 
+# Add mtd-rw
+CONFIG_PACKAGE_mtd-rw=y
+
 # remove procd-ujail
 # CONFIG_PACKAGE_procd-ujail is not set
 
