@@ -240,7 +240,7 @@ jobs:
               ├ frpc   
               ├ mosdns     
               ├ OpenClash
-              ├ passwall
+              ├ passwall (armvirt/x86 ONLY)
               ├ ttyd
               └ KMS
               
