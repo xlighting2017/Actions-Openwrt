@@ -14,7 +14,7 @@ CONFIG_TARGET_PER_DEVICE_ROOTFS=y
 
 # Using testing/default Kernel
 # CONFIG_LINUX_5_15=y
-CONFIG_TESTING_KERNEL=y
+# CONFIG_TESTING_KERNEL=y
 
 # enable custom version 
 CONFIG_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53+crypto+crc"
