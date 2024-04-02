@@ -30,3 +30,5 @@ git sparse-checkout add package/emortal/cpufreq
 cp -Rf package/emortal/cpufreq ../feeds/packages/cpufreq
 cd ..
 
+# refresh packages
+./scripts/feeds install -a -f
