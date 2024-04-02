@@ -27,8 +27,6 @@ git clone -b v5 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
 git clone --filter=blob:none --sparse https://github.com/immortalwrt/immortalwrt
 cd immortalwrt
 git sparse-checkout add package/emortal/cpufreq
-cp -Rf package/emortal/cpufreq ../feeds/packages/cpufreq
+cp -Rf package/emortal/cpufreq ../package/cpufreq
 cd ..
 
-# refresh packages
-./scripts/feeds install -a -f
