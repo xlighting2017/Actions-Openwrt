@@ -38,7 +38,7 @@ CONFIG_PACKAGE_kmod-nss-ifb=y
 CONFIG_PACKAGE_kmod-qca-mcs=y
 
 ##### qca-nss-cfi #####
-CONFIG_PACKAGE_kmod-qca-nss-cfi-cryptoapi=y
+#CONFIG_PACKAGE_kmod-qca-nss-cfi-cryptoapi is not set
 
 ##### qca-nss-clients #####
 CONFIG_PACKAGE_kmod-qca-nss-clients=y
@@ -75,7 +75,7 @@ CONFIG_PACKAGE_kmod-qca-nss-drv-mirror=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-wifi-meshmgr=y
 
 ##### qca-nss-crypto #####
-CONFIG_PACKAGE_kmod-qca-nss-crypto=y
+# CONFIG_PACKAGE_kmod-qca-nss-crypto is not set
 
 ##### qca-nss-drv #####
 CONFIG_PACKAGE_kmod-qca-nss-drv=y
@@ -147,6 +147,12 @@ CONFIG_PACKAGE_qca-ssdk-shell=y
 ##### nss-userspace-oss #####
 # CONFIG_PACKAGE_nssinfo is not set
 # CONFIG_PACKAGE_libnl-nss is not set
+
+# to check if it's working:
+# nss_stats
+# ecm_dump.sh
+# lsmod | awk '$1~/nss|qca|ecm/'
+# cat /sys/module/ath11k/parameters/nss_offload
 
 ####### Qualcomm NSS packages end of Configuration#######
 
