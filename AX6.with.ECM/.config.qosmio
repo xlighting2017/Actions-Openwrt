@@ -38,7 +38,7 @@ CONFIG_PACKAGE_kmod-nss-ifb=y
 CONFIG_PACKAGE_kmod-qca-mcs=y
 
 ##### qca-nss-cfi #####
-# CONFIG_PACKAGE_kmod-qca-nss-cfi-cryptoapi is not set
+CONFIG_PACKAGE_kmod-qca-nss-cfi-cryptoapi=y
 
 ##### qca-nss-clients #####
 CONFIG_PACKAGE_kmod-qca-nss-clients=y
@@ -75,7 +75,7 @@ CONFIG_PACKAGE_kmod-qca-nss-drv-mirror=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-wifi-meshmgr=y
 
 ##### qca-nss-crypto #####
-# CONFIG_PACKAGE_kmod-qca-nss-crypto is not set
+CONFIG_PACKAGE_kmod-qca-nss-crypto=y
 
 ##### qca-nss-drv #####
 CONFIG_PACKAGE_kmod-qca-nss-drv=y
