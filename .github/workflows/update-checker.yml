@@ -16,7 +16,7 @@ name: Update Checker
 on:
   workflow_dispatch:
   schedule:
-    - cron: 30 18 * * *
+    - cron: 23 22 * * *
 
 jobs:
   Check:
@@ -113,6 +113,6 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
           repository: ${{ github.repository }}
-          retain_days: 1
-          keep_minimum_runs: 1
+          retain_days: 10
+          keep_minimum_runs: 10
           delete_workflow_pattern: "Checker"
