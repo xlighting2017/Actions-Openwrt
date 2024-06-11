@@ -1,21 +1,15 @@
-CONFIG_TARGET_ipq60xx=y
-CONFIG_TARGET_ipq60xx_generic=y
+# only minimium IPKs
+CONFIG_DEVEL=y
+
+CONFIG_TARGET_qualcommax=y
+CONFIG_TARGET_qualcommax_ipq60xx=y
+CONFIG_TARGET_qualcommax_ipq60xx_DEVICE_cmiot_ax18=y
+CONFIG_TARGET_PACKAGES_qualcommax_ipq60xx_DEVICE_cmiot_ax18=""
+# CONFIG_TARGET_qualcommax_ipq60xx_DEVICE_zn_m2=y
+# CONFIG_TARGET_PACKAGES_qualcommax_ipq807x_DEVICE_zn_m2=""
 
 CONFIG_TARGET_MULTI_PROFILE=y
 # CONFIG_TARGET_ALL_PROFILES is not set
-
-CONFIG_TARGET_DEVICE_ipq60xx_generic_DEVICE_cmiot_ax18=y
-CONFIG_TARGET_DEVICE_PACKAGES_ipq60xx_generic_DEVICE_cmiot_ax18="ath11k-firmware-ipq6018 kmod-ath11k-ahb wpad-openssl ath11k-wifi-cmiot_ax18"
-CONFIG_TARGET_DEVICE_ipq60xx_generic_DEVICE_zn_m2=y
-CONFIG_TARGET_DEVICE_PACKAGES_ipq60xx_generic_DEVICE_zn_m2=""
-# CONFIG_TARGET_ipq60xx_generic_Default=y
-# CONFIG_TARGET_ipq60xx_generic_DEVICE_glinet_gl-common is not set
-# CONFIG_TARGET_ipq60xx_generic_DEVICE_glinet_gl-ax1800 is not set
-# CONFIG_TARGET_ipq60xx_generic_DEVICE_glinet_gl-axt1800 is not set
-# CONFIG_TARGET_ipq60xx_generic_DEVICE_huasifei_wf-hr6001 is not set
-# CONFIG_TARGET_ipq60xx_generic_DEVICE_linksys_mr7350 is not set
-# CONFIG_TARGET_ipq60xx_generic_DEVICE_qihoo_360v6 is not set
-# CONFIG_TARGET_ipq60xx_generic_DEVICE_xiaomi_rm1800 is not set
 
 CONFIG_TARGET_INITRAMFS_COMPRESSION_ZSTD=y
 CONFIG_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53+crypto+crc"
