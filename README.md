@@ -45,7 +45,7 @@ Community Builds
 - [dimfishr (IPQ807x/AX6 with ECM)](https://github.com/dimfishr/openwrt/tree/qualcommax-6.x-nss-wifi)
 - [Qosmio (IPQ807x/AX6 with ECM+wifi-offloading)](https://github.com/qosmio/openwrt-ipq/tree/qualcommax-6.x-nss-wifi)
 - [sdf8057 (IPQ6000/ZN M2, kernel 4.4.X)](https://github.com/sdf8057/ipq6000)
-- [breeze303 (IPQ6000/ZN M2, kernel 6.6.X, with ECM+wifi-offloading)](https://github.com/breeze303/openwrt)
+- [breeze303 (IPQ6000/ZN M2, kernel 6.6.X, with ECM+wifi-offloading)](https://github.com/breeze303/openwrt-6.x)
 - [hanwckf (MT798x/360T7, 5.4 kernel with mediatek_hnat + mtwifi)](https://github.com/hanwckf/immortalwrt-mt798x)
 - [Flippy (unifreq/openwrt_packit)](https://github.com/unifreq/openwrt_packit)
 - [ophub (amlogic-s9xxx-openwrt)](https://github.com/ophub/amlogic-s9xxx-openwrt)
