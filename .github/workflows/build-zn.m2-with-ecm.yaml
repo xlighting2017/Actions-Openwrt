@@ -17,7 +17,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/breeze303/openwrt
+  REPO_URL: https://github.com/breeze303/openwrt-6.x
   REPO_BRANCH: main
   FEEDS_CONF: ipq6000/feeds.conf.breeze303
   CONFIG_FILE: ipq6000/.config.ecm
