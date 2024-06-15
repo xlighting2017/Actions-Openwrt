@@ -51,7 +51,7 @@ CONFIG_VERSION_FILENAMES=y
 CONFIG_PACKAGE_nss-eip-firmware=y
 
 ##### firmware/nss-firmware #####
-CONFIG_PACKAGE_nss-firmware-ipq8074=y
+CONFIG_PACKAGE_nss-firmware-ipq6018=y
 
 ##### nss-ifb #####
 CONFIG_PACKAGE_kmod-nss-ifb=y
