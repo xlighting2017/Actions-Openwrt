@@ -26,7 +26,7 @@ jobs:
       fail-fast: false
       matrix:
         # REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, dimfishr/openwrt, AgustinLorenzo/openwrt, qosmio/openwrt-ipq]
-        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, qosmio/openwrt-ipq, breeze303/openwrt-6.x]
+        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, qosmio/openwrt-ipq, openwrt-ipq60xx/openwrt]
         
     steps:
       - name: Check All Code Bases
@@ -48,7 +48,7 @@ jobs:
           export DIMFISHR_BRANCH="qualcommax-6.1-nss"
           export LORENZO_BRANCH="main"
           export QOSMIO_BRANCH="qualcommax-6.x-nss-wifi"
-          export BREEZE303_BRANCH="main"
+          export OPENWRT-IPQ60XX_BRANCH="qosmio"
           
           if [ $REPO_USER == sdf8057 ]
           then
@@ -68,9 +68,9 @@ jobs:
           elif [ $REPO_USER == qosmio ]
           then
             export BRANCH=$QOSMIO_BRANCH
-          elif [ $REPO_USER == breeze303 ]
+          elif [ $REPO_USER == openwrt-ipq60xx ]
           then
-            export BRANCH=$BREEZE303_BRANCH
+            export BRANCH=${OPENWRT-IPQ60XX_BRANCH}
           else
             export BRANCH=$IMMORTALWRT_BRANCH
           fi
