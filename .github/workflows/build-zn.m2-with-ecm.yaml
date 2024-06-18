@@ -2,13 +2,14 @@
 # Description: Build OpenWrt for IPQ60xx with ECM using GitHub Actions
 # Uses:
 #    breeze303/openwrt from breeze303
+#    openwrt-ipq60xx/openwrt from openwrt-ipq60xx
 ################################################
 
 name: Build ipq60xx-ECM
 
 on:
   repository_dispatch:
-    types: [Source_Code_Update_breeze303, Package_Luci_Update]
+    types: [Source_Code_Update_openwrt-ipq60xx, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
@@ -17,9 +18,9 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/breeze303/openwrt-6.x
-  REPO_BRANCH: main
-  FEEDS_CONF: ipq6000/feeds.conf.breeze303
+  REPO_URL: https://github.com/openwrt-ipq60xx/openwrt/
+  REPO_BRANCH: qosmio
+  FEEDS_CONF: ipq6000/feeds.conf.ecm
   CONFIG_FILE: ipq6000/.config.ecm
   DIY_P1_SH: ipq6000/diy-part1.sh
   DIY_P2_SH: ipq6000/diy-part2.sh
