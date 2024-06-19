@@ -18,8 +18,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/openwrt-ipq60xx/openwrt/
-  REPO_BRANCH: qosmio
+  REPO_URL: https://github.com/xlighting/openwrt/
+  REPO_BRANCH: main
   FEEDS_CONF: ipq6000/feeds.conf.ecm
   CONFIG_FILE: ipq6000/.config.ecm
   DIY_P1_SH: ipq6000/diy-part1.sh
