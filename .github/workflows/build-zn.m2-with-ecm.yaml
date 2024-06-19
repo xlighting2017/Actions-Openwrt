@@ -1,15 +1,14 @@
 ################################################
 # Description: Build OpenWrt for IPQ60xx with ECM using GitHub Actions
 # Uses:
-#    breeze303/openwrt from breeze303
-#    openwrt-ipq60xx/openwrt from openwrt-ipq60xx
+#    King-Of-Knights/openwrt-6.x from King-Of-Knights
 ################################################
 
 name: Build ipq60xx-ECM
 
 on:
   repository_dispatch:
-    types: [Source_Code_Update_openwrt-ipq60xx, Package_Luci_Update]
+    types: [Source_Code_Update_King-Of-Knights, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
@@ -18,7 +17,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/xlighting2017/openwrt/
+  REPO_URL: https://github.com/King-Of-Knights/openwrt-6.x/
   REPO_BRANCH: main
   FEEDS_CONF: ipq6000/feeds.conf.ecm
   CONFIG_FILE: ipq6000/.config.ecm
