@@ -39,6 +39,9 @@ jobs:
           
           export REPO_NAME="$(echo $REPO | awk -F '/' '{print $2}')"
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
+
+          echo $REPO_USER
+          echo $REPO_NAME 
           
           export SDF8057_BRANCH="master"
           export HANWCKF_BRANCH="openwrt-21.02"
@@ -48,7 +51,7 @@ jobs:
           export DIMFISHR_BRANCH="qualcommax-6.1-nss"
           export LORENZO_BRANCH="main"
           export QOSMIO_BRANCH="qualcommax-6.x-nss-wifi"
-          export OPENWRT-IPQ60XX_BRANCH="qosmio"
+          export OPENWRT_IPQ60XX_BRANCH="qosmio"
           
           if [ $REPO_USER == sdf8057 ]
           then
@@ -68,9 +71,9 @@ jobs:
           elif [ $REPO_USER == qosmio ]
           then
             export BRANCH=$QOSMIO_BRANCH
-          elif [ $REPO_USER == openwrt-ipq60xx ]
+          elif [ $REPO_USER == "openwrt-ipq60xx" ]
           then
-            export BRANCH=${OPENWRT-IPQ60XX_BRANCH}
+            export BRANCH=$OPENWRT_IPQ60XX_BRANCH
           else
             export BRANCH=$IMMORTALWRT_BRANCH
           fi
