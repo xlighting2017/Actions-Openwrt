@@ -18,7 +18,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/xlighting/openwrt/
+  REPO_URL: https://github.com/xlighting2017/openwrt/
   REPO_BRANCH: main
   FEEDS_CONF: ipq6000/feeds.conf.ecm
   CONFIG_FILE: ipq6000/.config.ecm
