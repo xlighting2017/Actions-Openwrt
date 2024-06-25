@@ -108,14 +108,13 @@ jobs:
               插件列表： 
                 ├ amlogic
                 ├ ddns
-                ├ docker
                 ├ filetransfer
                 ├ frpc
                 ├ OpenClash
-                ├ SmartDNS
+                ├ Passwall                
+                ├ mosdns
                 ├ ttyd
-                ├ KMS 
-                └ Zerotier
+                └ KMS
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
