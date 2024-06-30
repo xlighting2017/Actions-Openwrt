@@ -72,7 +72,7 @@ jobs:
         with:
           openwrt_path: "https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armsr-armv8-generic-rootfs.tar.gz"
           openwrt_board: "s905d"
-          openwrt_kernel: "5.15.84_6.1.1"
+          openwrt_kernel: "6.1.1_6.6.1"
           auto_kernel: true
           openwrt_size: "960"
           gh_token: ${{ secrets.GH_TOKEN }}
