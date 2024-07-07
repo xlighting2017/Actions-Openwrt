@@ -104,6 +104,13 @@ jobs:
           path: ~/.cache/${{ env.REPO_USER }}-commitHash
           key: HEAD-${{ env.commitHash }}
 
+      - name: Wait for certain time(certain target only)
+        if: |
+          steps.cacheHash.outputs.cache-hit != 'true' &&
+          ${{env.REPO_NAME}} == 'ophub'
+        run: sleep 150m
+        shell: bash
+
       - name: Trigger build
         if: steps.cacheHash.outputs.cache-hit != 'true'
         uses: peter-evans/repository-dispatch@main
