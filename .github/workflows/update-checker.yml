@@ -105,9 +105,7 @@ jobs:
           key: HEAD-${{ env.commitHash }}
 
       - name: Wait for certain time(certain target only)
-        if: |
-          steps.cacheHash.outputs.cache-hit != 'true' &&
-          ${{env.REPO_NAME}} == 'ophub'
+        if: env.REPO_NAME == 'ophub' && steps.cacheHash.outputs.cache-hit != 'true'
         run: sleep 150m
         shell: bash
 
