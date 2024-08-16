@@ -25,8 +25,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, dimfishr/openwrt, AgustinLorenzo/openwrt, qosmio/openwrt-ipq]
-        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, qosmio/openwrt-ipq, King-Of-Knights/openwrt-6.x]
+        # REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, dimfishr/openwrt, AgustinLorenzo/openwrt, qosmio/openwrt-ipq, King-Of-Knights/openwrt-6.x]
+        REPO: [sdf8057/ipq6000, hanwckf/immortalwrt-mt798x, immortalwrt/immortalwrt, ophub/kernel, qosmio/openwrt-ipq, VIKINGYFY/immortalwrt]
         
     steps:
       - name: Check All Code Bases
@@ -51,7 +51,7 @@ jobs:
           export DIMFISHR_BRANCH="qualcommax-6.1-nss"
           export LORENZO_BRANCH="main"
           export QOSMIO_BRANCH="qualcommax-6.x-nss-wifi"
-          export KING_OF_KNIGHTS_BRANCH="main"
+          export VIKINGYFY_BRANCH="main"
           
           if [ $REPO_USER == sdf8057 ]
           then
@@ -71,9 +71,9 @@ jobs:
           elif [ $REPO_USER == qosmio ]
           then
             export BRANCH=$QOSMIO_BRANCH
-          elif [ $REPO_USER == "King-Of-Knights" ]
+          elif [ $REPO_USER == "VIKINGYFY" ]
           then
-            export BRANCH=$KING_OF_KNIGHTS_BRANCH
+            export BRANCH=$VIKINGYFY_BRANCH
           else
             export BRANCH=$IMMORTALWRT_BRANCH
           fi
