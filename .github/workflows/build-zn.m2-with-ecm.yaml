@@ -17,7 +17,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/King-Of-Knights/openwrt-6.x/
+  #REPO_URL: https://github.com/King-Of-Knights/openwrt-6.x/
+  REPO_URL: https://github.com/VIKINGYFY/immortalwrt
   REPO_BRANCH: main
   FEEDS_CONF: ipq6000/feeds.conf.ecm
   CONFIG_FILE: ipq6000/.config.ecm
@@ -174,7 +175,7 @@ jobs:
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-            ZN M2/CMIOT AX18 固件, 带NSS-ECM, 编译时间: ${{ env.FILE_DATE }}
+            ZN M2/CMIOT AX18/JDC AX6600 固件, 带NSS-ECM, 编译时间: ${{ env.FILE_DATE }}
             
             Default IP: 192.168.199.1
             Default username: root
