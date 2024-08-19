@@ -8,7 +8,7 @@ name: Build ipq60xx-ECM
 
 on:
   repository_dispatch:
-    types: [Source_Code_Update_King-Of-Knights, Package_Luci_Update]
+    types: [Source_Code_Update_VIKINGYFY, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
