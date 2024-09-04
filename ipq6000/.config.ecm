@@ -107,9 +107,9 @@ CONFIG_PACKAGE_kmod-qca-nss-drv-igs=y
 # CONFIG_PACKAGE_kmod-qca-nss-drv-netlink is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-ovpn-mgr is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-ovpn-link is not set
-CONFIG_PACKAGE_kmod-qca-nss-drv-pvxlanmgr=y
+# CONFIG_PACKAGE_kmod-qca-nss-drv-pvxlanmgr is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-eogremgr is not set
-CONFIG_PACKAGE_kmod-qca-nss-drv-clmapmgr=y
+# CONFIG_PACKAGE_kmod-qca-nss-drv-clmapmgr is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-vxlanmgr is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-match is not set
 # CONFIG_PACKAGE_kmod-qca-nss-drv-mirror is not set
@@ -171,7 +171,7 @@ CONFIG_NSS_DRV_VIRT_IF_ENABLE=y
 CONFIG_NSS_DRV_VLAN_ENABLE=y
 # CONFIG_NSS_DRV_VXLAN_ENABLE is not set
 CONFIG_NSS_DRV_WIFIOFFLOAD_ENABLE=y
-CONFIG_NSS_DRV_WIFI_EXT_VDEV_ENABLE=y
+# CONFIG_NSS_DRV_WIFI_EXT_VDEV_ENABLE is not set
 # CONFIG_NSS_DRV_WIFI_MESH_ENABLE is not set
 # CONFIG_NSS_DRV_WIFI_LEGACY_ENABLE is not set
 # end of Configuration
