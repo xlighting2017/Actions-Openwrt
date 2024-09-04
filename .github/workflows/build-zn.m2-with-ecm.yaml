@@ -1,14 +1,14 @@
 ################################################
 # Description: Build OpenWrt for IPQ60xx with ECM using GitHub Actions
 # Uses:
-#    King-Of-Knights/openwrt-6.x from King-Of-Knights
+#    King-Of-Knights/openwrt-6.x from VIKINGYFY
 ################################################
 
 name: Build ipq60xx-ECM
 
 on:
   repository_dispatch:
-    types: [Source_Code_Update_VIKINGYF, Package_Luci_Update]
+    types: [Source_Code_Update_VIKINGYFY, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
@@ -17,7 +17,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/xlighting2017/ipq60xx
+  REPO_URL: https://github.com/VIKINGYFY/immortalwrt
   REPO_BRANCH: main
   FEEDS_CONF: ipq6000/feeds.conf.ecm
   CONFIG_FILE: ipq6000/.config.ecm
