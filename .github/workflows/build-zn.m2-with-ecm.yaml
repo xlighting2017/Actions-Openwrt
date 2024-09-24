@@ -18,7 +18,7 @@ on:
 
 env:
   REPO_URL: https://github.com/xlighting2017/ipq60xx
-  REPO_BRANCH: main
+  REPO_BRANCH: patch-1
   FEEDS_CONF: ipq6000/feeds.conf.ecm
   CONFIG_FILE: ipq6000/.config.ecm
   DIY_P1_SH: ipq6000/diy-part1.sh
