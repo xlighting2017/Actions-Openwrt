@@ -28,8 +28,8 @@ on:
           - sunxi
         
 env:
-  REPO_URL: https://github.com/xlighting2017/ipq60xx
-  REPO_BRANCH: patch-3
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: master
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
