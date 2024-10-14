@@ -38,7 +38,7 @@ sed -i 's/192.168.1.1/192.168.199.1/g' package/base-files/files/bin/config_gener
 rm -rf ./feeds/luci/applications/luci-app-openclash
 git clone --depth=1 -b patch-1 https://github.com/xlighting2017/OpenClash.git package/luci-app-openclash
 
-git clone -b v5 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
+git clone -b v5 https://github.com/xlighting2017/luci-app-mosdns.git package/mosdns
 
 # rm -rf ./feeds/packages/net/smartdns
 # git clone --filter=blob:none --sparse https://github.com/immortalwrt/packages
