@@ -21,40 +21,40 @@ CONFIG_NAND_SUPPORT=y
 #####################################################################
 # Uncomment target device you want to build for, set '=y'
 
-CONFIG_TARGET_qualcommax_ipq807x_DEVICE_redmi_ax6=y
-CONFIG_TARGET_PACKAGES_qualcommax_ipq807x_DEVICE_redmi_ax6=""
-CONFIG_TARGET_qualcommax_ipq807x_DEVICE_xiaomi_ax3600=y
-CONFIG_TARGET_PACKAGES_qualcommax_ipq807x_DEVICE_xiaomi_ax3600="MAC80211_NSS_REDIRECT kmod-ath10k ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_redmi_ax6=y
+CONFIG_TARGET_DEVICE_PACKAGES_qualcommax_ipq807x_DEVICE_redmi_ax6=""
+CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_xiaomi_ax3600=y
+CONFIG_TARGET_DEVICE_PACKAGES_qualcommax_ipq807x_DEVICE_xiaomi_ax3600="MAC80211_NSS_REDIRECT kmod-ath10k ath10k-firmware-qca9984"
 
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_arcadyan_aw1000 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_asus_rt-ax89x is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_buffalo_wxr-5950ax12 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_cmcc_rm2-6 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_compex_wpq873 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_dynalink_dl-wrx36 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_edgecore_eap102 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_edimax_cax1800 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_linksys_mx4200v1 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_linksys_mx4200v2 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_linksys_mx4300 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_linksys_mx5300 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_linksys_mx8500 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_netgear_rax120v2 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_netgear_sxr80 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_netgear_sxs80 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_netgear_wax218 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_netgear_wax620 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_netgear_wax630 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_prpl_haze is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_qnap_301w is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_redmi_ax6 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_spectrum_sax1v1k is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_xiaomi_ax3600 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_xiaomi_ax9000 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_yuncore_ax880 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_zbtlink_zbt-z800ax is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_zte_mf269 is not set
-# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_zyxel_nbg7815 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_arcadyan_aw1000 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_asus_rt-ax89x is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_buffalo_wxr-5950ax12 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_cmcc_rm2-6 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_compex_wpq873 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_dynalink_dl-wrx36 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_edgecore_eap102 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_edimax_cax1800 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_linksys_mx4200v1 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_linksys_mx4200v2 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_linksys_mx4300 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_linksys_mx5300 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_linksys_mx8500 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_netgear_rax120v2 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_netgear_sxr80 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_netgear_sxs80 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_netgear_wax218 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_netgear_wax620 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_netgear_wax630 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_prpl_haze is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_qnap_301w is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_redmi_ax6 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_spectrum_sax1v1k is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_xiaomi_ax3600 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_xiaomi_ax9000 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_yuncore_ax880 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_zbtlink_zbt-z800ax is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_zte_mf269 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_zyxel_nbg7815 is not set
 
 #####################################################################
 # Compiler Optimization
