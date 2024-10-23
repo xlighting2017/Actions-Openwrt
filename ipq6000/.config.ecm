@@ -4,6 +4,18 @@
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq60xx=y
 
+CONFIG_HAS_SUBTARGETS=y
+CONFIG_HAS_DEVICES=y
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_OPTIONS=y
+CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+CONFIG_TARGET_ROOTFS_INITRAMFS=y
+CONFIG_TARGET_INITRAMFS_COMPRESSION_ZSTD=y
+CONFIG_TARGET_ROOTFS_SQUASHFS=y
+CONFIG_USES_INITRAMFS=y
+CONFIG_USES_SQUASHFS=y
+CONFIG_NAND_SUPPORT=y
+
 #####################################################################
 # Target device
 #####################################################################
