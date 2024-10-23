@@ -4,23 +4,12 @@
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq60xx=y
 
-CONFIG_HAS_SUBTARGETS=y
-CONFIG_HAS_DEVICES=y
-CONFIG_TARGET_MULTI_PROFILE=y
-CONFIG_TARGET_OPTIONS=y
-CONFIG_TARGET_PER_DEVICE_ROOTFS=y
-CONFIG_TARGET_ROOTFS_INITRAMFS=y
-CONFIG_TARGET_INITRAMFS_COMPRESSION_ZSTD=y
-CONFIG_TARGET_ROOTFS_SQUASHFS=y
-CONFIG_USES_INITRAMFS=y
-CONFIG_USES_SQUASHFS=y
-CONFIG_NAND_SUPPORT=y
-
 #####################################################################
 # Target device
 #####################################################################
 # Uncomment target device you want to build for, set '=y'
 
+CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_arcadyan_aw1000=y
 CONFIG_TARGET_qualcommax_ipq60xx_DEVICE_cmiot_ax18=y
 CONFIG_TARGET_PACKAGES_qualcommax_ipq60xx_DEVICE_cmiot_ax18=""
 CONFIG_TARGET_qualcommax_ipq60xx_DEVICE_jdcloud_ax6600=y
@@ -43,6 +32,19 @@ CONFIG_TARGET_PACKAGES_qualcommax_ipq60xx_DEVICE_zn_m2=""
 CONFIG_DEFAULT_ath11k-firmware-ipq6018=y
 CONFIG_MODULE_DEFAULT_ath11k-firmware-ipq6018=y
 CONFIG_MODULE_DEFAULT_ath11k-firmware-qcn9074=y
+
+CONFIG_HAS_SUBTARGETS=y
+CONFIG_HAS_DEVICES=y
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_ALL_PROFILES=y
+CONFIG_TARGET_OPTIONS=y
+CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+CONFIG_TARGET_ROOTFS_INITRAMFS=y
+CONFIG_TARGET_INITRAMFS_COMPRESSION_ZSTD=y
+CONFIG_TARGET_ROOTFS_SQUASHFS=y
+CONFIG_USES_INITRAMFS=y
+CONFIG_USES_SQUASHFS=y
+CONFIG_NAND_SUPPORT=y
 
 #####################################################################
 # Compiler Optimization
