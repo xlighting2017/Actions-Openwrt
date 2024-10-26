@@ -1,7 +1,7 @@
 ################################################
-# Description: Build OpenWrt for IPQ60xx with ECM using GitHub Actions
+# Description: Build OpenWrt for IPQ60xx with NSS-ECM and WiFi Offloading using GitHub Actions
 # Uses:
-#    King-Of-Knights/openwrt-6.x from VIKINGYFY
+#    VIKINGYFY/immortalwrt from VIKINGYFY
 ################################################
 
 name: Build ipq60xx-ECM
@@ -172,14 +172,14 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: v${{ env.FILE_DATE }}-ipq60xx-ECM
+        tag: ${{ env.RELEASE_TAG }}
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
             Device: ${{ env.DEVICE_NAME }} 
-            精简版固件, 带 ECM 和 有线+无线 加速/Offloading
+            精简版固件, 带有线+无线硬件加速/Offloading
             编译时间: ${{ env.FILE_DATE }}
             
             Default IP: 192.168.199.1
@@ -203,7 +203,7 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 3
         keep_minimum_runs: 2
-        delete_workflow_pattern: "ipq60xx-ECM"
+        delete_workflow_pattern: "ipq60xx-with-ECM"
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@master
@@ -211,7 +211,7 @@ jobs:
       with:
         repo: ${{ github.repository }}
         keep_latest: 3
-        delete_tag_pattern: 'ipq60xx-ECM'
+        delete_tag_pattern: 'ipq60xx-with-ECM'
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}              
