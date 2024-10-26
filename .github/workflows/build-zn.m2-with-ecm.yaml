@@ -128,13 +128,17 @@ jobs:
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
-        echo "COMPILE_STATUS=success" >> $GITHUB_ENV
         
-        # grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
-        echo "ipq60xx_generic" > DEVICE_NAME
+        export FILE_DATE="$(date +"%y.%-m.%-d")"
+        echo "FILE_DATE=$FILE_DATE" >> $GITHUB_ENV
+        
+        export RELEASE_TAG="v${FILE_DATE}-ipq60xx-with-ECM"
+        echo "RELEASE_TAG=$RELEASE_TAG" >> $GITHUB_ENV
+        
+        grep -E '^CONFIG_TARGET(.*_generic)?_DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' | xargs | sed -r 's| | / |g' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
         
-        echo "FILE_DATE=$(date +"%y.%-m.%-d")" >> $GITHUB_ENV
+        echo "COMPILE_STATUS=success" >> $GITHUB_ENV
         
     - name: Check space usage
       if: (!cancelled())
@@ -160,7 +164,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
-        name: OpenWrt_firmware_${{ env.DEVICE_NAME }}
+        name: OpenWrt_firmware_ipq60xx-with-ECM
         path: ${{ env.FIRMWARE }}
 
     - name: Upload OpenWrt Firmware to Release
@@ -174,14 +178,16 @@ jobs:
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-            ZN M2/CMIOT AX18/JDC AX6600 固件, 带NSS-ECM, 编译时间: ${{ env.FILE_DATE }}
+            Device: ${{ env.DEVICE_NAME }} 
+            精简版固件, 带 ECM 和 有线+无线 加速/Offloading
+            编译时间: ${{ env.FILE_DATE }}
             
             Default IP: 192.168.199.1
             Default username: root
-            Default password: password
+            Default password: NULL
             
             插件列表：
-              ├ ddns
+              ├ ddns-go
               ├ frpc
               ├ mosdns
               ├ OpenClash
