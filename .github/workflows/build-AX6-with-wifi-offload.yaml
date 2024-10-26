@@ -1,7 +1,7 @@
 ################################################
-# Description: Build OpenWrt for Redmi AX 6 using GitHub Actions
+# Description: Build OpenWrt for IPQ807x with NSS-ECM & WiFi Offloading using GitHub Actions
 # Uses:
-#   imoutowrt/immortalwrt from CNSZTL
+#   immortalwrt/immortalwrt from CNSZTL
 #   IPQ807x patchs from Robimarko & Ansuels
 #   ECM patches from bitthief
 #   wireless offloading from qosmio
@@ -177,7 +177,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: v${{ env.RELEASE_TAG }}-qosmio
+        tag: ${{ env.RELEASE_TAG }}-qosmio
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
