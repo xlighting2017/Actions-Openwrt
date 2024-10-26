@@ -866,7 +866,6 @@ CONFIG_PACKAGE_openwrt-keyring=y
 CONFIG_PACKAGE_opkg=y
 CONFIG_PACKAGE_procd=y
 CONFIG_PACKAGE_procd-seccomp=y
-CONFIG_PACKAGE_procd-ujail=y
 CONFIG_PACKAGE_resolveip=y
 CONFIG_PACKAGE_rpcd=y
 CONFIG_PACKAGE_rpcd-mod-file=y
