@@ -23,8 +23,8 @@ CONFIG_NAND_SUPPORT=y
 
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_cmiot_ax18=y
 CONFIG_TARGET_DEVICE_PACKAGES_qualcommax_ipq60xx_DEVICE_cmiot_ax18=""
-CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_jdcloud_ax6600=y
-CONFIG_TARGET_DEVICE_PACKAGES_qualcommax_ipq60xx_DEVICE_jdcloud_ax6600=""
+CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_jdcloud_re-cs-02=y
+CONFIG_TARGET_DEVICE_PACKAGES_qualcommax_ipq60xx_DEVICE_jdcloud_re-cs-02=""
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_zn_m2=y
 CONFIG_TARGET_DEVICE_PACKAGES_qualcommax_ipq60xx_DEVICE_zn_m2=""
 
@@ -34,10 +34,10 @@ CONFIG_TARGET_DEVICE_PACKAGES_qualcommax_ipq60xx_DEVICE_zn_m2=""
 # CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_yuncore_fap650 is not set
 # CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_glinet_gl-ax1800 is not set
 # CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_glinet_gl-axt1800 is not set
-# CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_jdcloud_ax1800-pro is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_jdcloud_re-ss-01 is not set
+# CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_jdcloud_re-cs-07 is not set
 # CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_qihoo_v6 is not set
 # CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_redmi_ax5 is not set
-# CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_redmi_ax5-jdcloud is not set
 # CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_xiaomi_ax1800 is not set
 
 CONFIG_DEFAULT_ath11k-firmware-ipq6018=y
