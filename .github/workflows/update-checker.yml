@@ -50,24 +50,15 @@ jobs:
           export BITTHIEF_BRANCH="master"
           export DIMFISHR_BRANCH="qualcommax-6.1-nss"
           export LORENZO_BRANCH="main"
-          export QOSMIO_BRANCH="qualcommax-6.x-nss-wifi"
+          export QOSMIO_BRANCH="24.10-nss"
           export VIKINGYFY_BRANCH="main"
           
-          if [ $REPO_USER == sdf8057 ]
-          then
-            export BRANCH=$SDF8057_BRANCH
-          elif [ $REPO_USER == hanwckf ]
+          if [ $REPO_USER == hanwckf ]
           then
             export BRANCH=$HANWCKF_BRANCH
           elif [ $REPO_USER == ophub ]
           then
             export BRANCH=$OPHUB_BRANCH
-          elif [ $REPO_USER == dimfishr ]
-          then
-            export BRANCH=$DIMFISHR_BRANCH
-          elif [ $REPO_USER == AgustinLorenzo ]
-          then
-            export BRANCH=$LORENZO_BRANCH
           elif [ $REPO_USER == qosmio ]
           then
             export BRANCH=$QOSMIO_BRANCH
