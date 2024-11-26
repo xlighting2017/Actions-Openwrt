@@ -38,7 +38,8 @@ git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git package/luci-a
 # rm -rf ./feeds/luci/applications/luci-app-openclash
 # git clone --depth=1 -b patch-1 https://github.com/xlighting2017/OpenClash.git package/luci-app-openclash
 
-git clone -b v5 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
+# add mosdns
+git clone -b v5 https://github.com/xlighting2017/luci-app-mosdns.git package/mosdns
 
 
 # Fix runc version error
