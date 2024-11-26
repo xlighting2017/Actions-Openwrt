@@ -21,4 +21,4 @@ echo 'net.netfilter.nf_conntrack_max=65536' >> package/base-files/files/etc/sysc
 # git clone --depth=1 -b patch-1 https://github.com/xlighting2017/OpenClash.git package/luci-app-openclash
 
 # add mosdns
-git clone -b v5 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
+git clone -b v5 https://github.com/xlighting2017/luci-app-mosdns.git package/mosdns
