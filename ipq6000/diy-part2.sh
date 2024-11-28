@@ -22,6 +22,7 @@ echo 'net.netfilter.nf_conntrack_max=65536' >> package/base-files/files/etc/sysc
 
 # add mosdns
 rm -rf ./feeds/packages/net/mosdns
-git clone -b v5 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
+# special setting for ipq60xx, since it will crash the ECM engine
+git clone -b v5 https://github.com/xlighting2017/luci-app-mosdns.git package/mosdns
 
 # ./scripts/feeds install -a -f
