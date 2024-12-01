@@ -58,6 +58,8 @@ on:
         description: "Set the rootfs size(Unit: MiB)."
         required: false
         default: "960"
+  schedule:
+    - cron: '30 16 * * 6'
     
 env:
   TZ: 'Asia/Shanghai'
