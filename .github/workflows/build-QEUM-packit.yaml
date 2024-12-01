@@ -94,6 +94,8 @@ on:
         options:
           - angel
           - yourname
+  schedule:
+    - cron: '30 16 * * 6'
     
 env:
   TZ: 'Asia/Shanghai'
