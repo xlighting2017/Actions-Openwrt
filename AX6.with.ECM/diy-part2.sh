@@ -24,10 +24,12 @@ echo 'net.netfilter.nf_conntrack_max=65536' >> package/base-files/files/etc/sysc
 rm -rf ./feeds/packages/net/mosdns
 git clone -b v5 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
 
-# import cpufreq from immortalwrt
+# import autocore & cpufreq from immortalwrt
 git clone --filter=blob:none --sparse https://github.com/immortalwrt/immortalwrt
 cd immortalwrt
 git sparse-checkout add package/emortal/cpufreq
+git sparse-checkout add package/emortal/autocore
 cp -Rf package/emortal/cpufreq ../package/cpufreq
+cp -Rf package/emortal/autocore ../package/autocore
 cd ..
 
