@@ -95,7 +95,7 @@ on:
           - angel
           - yourname
   schedule:
-    - cron: '30 16 * * 6'
+    - cron: '30 3 * * 0'
     
 env:
   TZ: 'Asia/Shanghai'
