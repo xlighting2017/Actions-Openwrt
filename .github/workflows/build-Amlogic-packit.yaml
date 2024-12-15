@@ -80,7 +80,7 @@ jobs:
           gh_token: ${{ secrets.GH_TOKEN }}
     
       - name: Package Armvirt as OpenWrt(with input)
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.openwrt_board != '' && (!cancelled())
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' && github.event.inputs.openwrt_board != '' && (!cancelled())
         uses: ophub/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: "https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armsr-armv8-generic-rootfs.tar.gz"
