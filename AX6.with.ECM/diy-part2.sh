@@ -32,7 +32,7 @@ git sparse-checkout add package/emortal/autocore
 cp -Rf package/emortal/cpufreq ../package/cpufreq
 cp -Rf package/emortal/autocore ../package/autocore
 # import cupinfo hack
-git sparse-checkout add target/linux/generic/hack-6.6/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+git sparse-checkout add target/linux/generic/hack-6.6
 cp -Rf target/linux/generic/hack-6.6/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch ../target/linux/generic/hack-6.6/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
 cd ..
