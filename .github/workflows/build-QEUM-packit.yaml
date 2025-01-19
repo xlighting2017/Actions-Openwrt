@@ -135,7 +135,7 @@ jobs:
           echo "status=success" >> ${GITHUB_OUTPUT}    
   
       - name: Package Armvirt as QEMU(auto triggered)
-        if: github.event_name == 'repository_dispatch' || github.event_name == 'schedule' && github.event.action == 'Source_Code_Update_ophub' && !cancelled()
+        if: (github.event_name == 'repository_dispatch' && github.event.action == 'Source_Code_Update_ophub')  || github.event_name == 'schedule' && !cancelled()
         uses: ophub/flippy-openwrt-actions@main
         env:
           OPENWRT_ARMVIRT: "https://github.com/xlighting2017/Actions-Openwrt/releases/download/Immortalwrt_Armvirt/immortalwrt-armsr-armv8-generic-rootfs.tar.gz"
