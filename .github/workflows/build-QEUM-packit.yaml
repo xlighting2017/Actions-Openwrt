@@ -128,7 +128,7 @@ jobs:
         run: |
           sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.org/init_build_environment.sh)'
           sudo timedatectl set-timezone "$TZ"
-          echo "INIT_STATUS=success" >> ${GITHUB_OUTPUT}
+          echo "INIT_STATUS=success" >> ${GITHUB_ENV}
   
       - name: Package Armvirt as QEMU(auto triggered)
         if: env.INIT_STATUS == 'success' && (github.event_name == 'repository_dispatch' && github.event.action == 'Source_Code_Update_ophub')  || github.event_name == 'schedule' && !cancelled()
