@@ -43,15 +43,16 @@ jobs:
           echo $REPO_USER
           echo $REPO_NAME 
           
+          export IMMORTALWRT_BRANCH="master"
+          export QOSMIO_BRANCH="main-nss"
+          export VIKINGYFY_BRANCH="main"
+          
           export SDF8057_BRANCH="master"
           export HANWCKF_BRANCH="openwrt-21.02"
-          export IMMORTALWRT_BRANCH="master"
           export OPHUB_BRANCH="main"
           export BITTHIEF_BRANCH="master"
           export DIMFISHR_BRANCH="qualcommax-6.1-nss"
           export LORENZO_BRANCH="main"
-          export QOSMIO_BRANCH="24.10-nss"
-          export VIKINGYFY_BRANCH="main"
           
           if [ $REPO_USER == hanwckf ]
           then
