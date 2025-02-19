@@ -15,7 +15,7 @@ CONFIG_TARGET_PER_DEVICE_ROOTFS=y
 # Using testing/default Kernel
 CONFIG_TESTING_KERNEL=y
 
-# Enlarge rootfs
+# Enlarge rootfs (for eMMC devices)
 CONFIG_TARGET_ROOTFS_PARTSIZE=512
 
 # enable custom version 
@@ -68,7 +68,7 @@ CONFIG_VERSION_FILENAMES=y
 #####################################################################
 
 # - SQM: Smart Queue Management for bufferbloat control.
-CONFIG_PACKAGE_luci-app-sqm=y
+# CONFIG_PACKAGE_luci-app-sqm=y
 # - Statistics: Monitor your router’s performance (CPU, memory, bandwidth).
 # CONFIG_PACKAGE_luci-app-statistics=y
 # - ACME: Automated SSL cert management. If you want to access your router via HTTPS and have a domain.
@@ -81,6 +81,7 @@ CONFIG_PACKAGE_luci-app-sqm=y
 # CONFIG_PACKAGE_luci-app-nlbwmon=y
 
 CONFIG_LUCI_LANG_zh_Hans=y
+CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
 CONFIG_PACKAGE_luci-compat=y
 
 CONFIG_PACKAGE_luci=y
@@ -98,11 +99,12 @@ CONFIG_PACKAGE_luci-proto-ppp=y
 CONFIG_PACKAGE_luci-proto-vxlan=y
 CONFIG_PACKAGE_luci-proto-wireguard=y
 
-CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
+# Luci - Theme
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
 CONFIG_PACKAGE_luci-i18n-argon-config-zh-cn=y
 
+# Luci - Application
 CONFIG_PACKAGE_cpufreq=y
 CONFIG_PACKAGE_luci-app-cpufreq=y
 CONFIG_PACKAGE_luci-i18n-cpufreq-zh-cn=y
@@ -166,6 +168,12 @@ CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
 # Add mtd-rw
 CONFIG_PACKAGE_kmod-mtd-rw=y
 
+# tailscale & wireguard
+CONFIG_PACKAGE_tailscale=y
+CONFIG_PACKAGE_wireguard-tools=y
+CONFIG_PACKAGE_kmod-wireguard=y
+CONFIG_PACKAGE_luci-proto-wireguard=y
+
 #####################################################################
 # Packages
 #####################################################################
@@ -186,8 +194,6 @@ CONFIG_PACKAGE_tar=y
 CONFIG_PACKAGE_tcpdump=y
 # - htop: CLI tool to monitor system resource usage.
 CONFIG_PACKAGE_htop=y
-# lm-sensors isn't needed for IPQ807x devices.
-CONFIG_HTOP_LMSENSORS=n
 
 # IP Addresses and Names
 CONFIG_PACKAGE_bind-dig=y
@@ -259,8 +265,6 @@ CONFIG_PACKAGE_default-settings-chn=y
 # CONFIG_PACKAGE_opkg is not set
 ### remove procd-ujail
 # CONFIG_PACKAGE_procd-ujail is not set
-CONFIG_PACKAGE_tailscale=y
-CONFIG_PACKAGE_wireguard-tools=y
 
 #ZRam
 CONFIG_PACKAGE_kmod-zram=y
