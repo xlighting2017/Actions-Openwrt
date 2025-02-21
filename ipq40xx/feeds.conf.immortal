@@ -1,7 +1,7 @@
 # use local feeds.conf
 
-src-git packages https://github.com/immortalwrt/packages.git
-src-git luci https://github.com/immortalwrt/luci.git
+src-git packages https://github.com/immortalwrt/packages.git;openwrt-23.05
+src-git luci https://github.com/immortalwrt/luci.git;openwrt-23.05
 
 # src-git-full routing https://github.com/immortalwrt/routing.git
 # src-git-full routing https://github.com/openwrt/telephony.git
